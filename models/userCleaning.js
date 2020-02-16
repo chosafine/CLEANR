@@ -7,7 +7,7 @@
 // therefore a list of services created by each user!
 
 module.exports = function(sequelize, DataTypes) {
-  const userCleanings = sequelize.define(
+  const userCleaning = sequelize.define(
     "User_Cleanings",
     {
       id: {
@@ -34,12 +34,12 @@ module.exports = function(sequelize, DataTypes) {
     }
   );
   // associate the many cleanings to this cleaning list
-  userCleanings.associate = function(models) {
-    userCleanings.hasMany(models.Cleanings, {
+  userCleaning.associate = function(models) {
+    userCleaning.hasMany(models.Cleanings, {
       foreignKey: "id",
       sourceKey: "cleaning_id"
     });
   };
 
-  return userCleanings;
+  return userCleaning;
 };

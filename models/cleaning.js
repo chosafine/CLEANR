@@ -5,7 +5,7 @@
 // off of information entered into the object being sent from the front end
 
 module.exports = function(sequelize, DataTypes) {
-  const Cleanings = sequelize.define(
+  const Cleaning = sequelize.define(
     "Cleanings",
     {
       id: { type: DataTypes.INTEGER, primaryKey: true },
@@ -29,5 +29,5 @@ module.exports = function(sequelize, DataTypes) {
     });
   };
 
-  return Products;
+  return Cleaning;
 };
