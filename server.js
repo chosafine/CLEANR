@@ -43,7 +43,7 @@ app.use(function(req, res, next) {
 require("./routes/htmlRoutes.js")(app);
 require("./routes/apiRoutes.js")(app);
 
-db.sequelize.sync({ force: false, logging: false }).then(() => {
+db.sequelize.sync({ force: true, logging: false }).then(() => {
   app.listen(PORT, () => {
     console.log(`🌎 ==> API server now on port ${PORT}!`);
   });
