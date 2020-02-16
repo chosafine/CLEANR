@@ -1,3 +1,5 @@
+"use_strict";
+
 module.exports = {
   ensureAuthenticated: function(req, res, next) {
     if (req.isAuthenticated()) {

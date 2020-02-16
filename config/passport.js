@@ -1,3 +1,5 @@
+"use_strict";
+
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs");
 const db = require("../models");
