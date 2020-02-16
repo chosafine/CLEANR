@@ -1,12 +1,12 @@
 "use_strict";
 
-// This is our Product List model, we use this to store product information
-// for the store. A product will get an ID, name, image, selling price,
-//tax exemption status (for EBT eligibility), tax percentage, category, and UPC barcode
+// This is our Cleaning model, we use this to store service information
+// for the client. A cleaning will get an ID, name, type, date, and price based
+// off of information entered into the object being sent from the front end
 
 module.exports = function(sequelize, DataTypes) {
-  const Products = sequelize.define(
-    "Products",
+  const Cleanings = sequelize.define(
+    "Cleanings",
     {
       id: { type: DataTypes.INTEGER, primaryKey: true },
       product_name: DataTypes.STRING,
@@ -22,10 +22,10 @@ module.exports = function(sequelize, DataTypes) {
     }
   );
 
-  Products.associate = function(models) {
-    Products.belongsTo(models.Grocery_List, {
+  Cleaning.associate = function(models) {
+    Cleaning.belongsTo(models.User_Cleanings, {
       foreignKey: "id",
-      targetKey: "productId"
+      targetKey: "cleaning_id"
     });
   };
 

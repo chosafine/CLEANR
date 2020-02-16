@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS food_db;
-CREATE DATABASE food_db;
-USE food_db;
-CREATE TABLE Products(
+DROP DATABASE IF EXISTS cleanr_db;
+CREATE DATABASE cleanr_db;
+USE cleanr_db;
+CREATE TABLE Cleanings(
   id INT PRIMARY KEY,
   product_name VARCHAR(500),
   selling_price DEC(10, 2),
@@ -18,10 +18,10 @@ CREATE TABLE Users(
   email VARCHAR(500),
   password VARCHAR(70)
 );
-CREATE TABLE Grocery_Lists(
+CREATE TABLE User_Cleanings(
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  productId INT NOT NULL,
-  userId INT NOT NULL,
-  FOREIGN KEY (productId) REFERENCES Products(id),
-  FOREIGN KEY (userId) REFERENCES Users(id)
+  cleaning_id INT NOT NULL,
+  user_id INT NOT NULL,
+  FOREIGN KEY (cleaning_id) REFERENCES Cleanings(id),
+  FOREIGN KEY (user_id) REFERENCES Users(id)
 );
