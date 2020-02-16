@@ -12,16 +12,18 @@ const flash = require("connect-flash");
 const passport = require("./config/passport");
 
 // Setting up port and requiring models for syncing
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 const db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
 const app = express();
-app.engine("handlebars", exphbs({ defaultLayout: "default" }));
-app.set("view engine", "handlebars");
+// Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 // We need to use sessions to keep track of our user's login status
 app.use(session({ secret: "secret", resave: true, saveUninitialized: true }));
@@ -39,10 +41,9 @@ app.use(function(req, res, next) {
 
 require("./routes/htmlRoutes.js")(app);
 require("./routes/apiRoutes.js")(app);
-// require("./routes/userRoutes.js")(app);
 
 db.sequelize.sync({ force: false, logging: false }).then(() => {
   app.listen(PORT, () => {
-    console.log(`Server Running: http://localhost:${PORT}`);
+    console.log(`🌎 ==> API server now on port ${PORT}!`);
   });
 });
