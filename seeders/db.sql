@@ -3,13 +3,13 @@ CREATE DATABASE cleanr_db;
 USE cleanr_db;
 CREATE TABLE Cleanings(
   id INT PRIMARY KEY,
-  product_name VARCHAR(500),
-  selling_price DEC(10, 2),
-  image_src VARCHAR(999),
-  tax_exempt BOOL,
-  tax_percentage INT,
-  category VARCHAR(500),
-  barcode VARCHAR(30)
+  address VARCHAR(999),
+  rate DEC(65, 2),
+  square_ft VARCHAR(999),
+  existing BOOL,
+  next VARCHAR(500),
+  frequency VARCHAR(500),
+  notes VARCHAR(999)
 );
 CREATE TABLE Users(
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

@@ -9,13 +9,13 @@ module.exports = function(sequelize, DataTypes) {
     "Cleanings",
     {
       id: { type: DataTypes.INTEGER, primaryKey: true },
-      product_name: DataTypes.STRING,
-      image_src: DataTypes.STRING,
-      selling_price: DataTypes.DECIMAL(10, 2),
-      tax_exempt: DataTypes.BOOLEAN,
-      tax_percentage: DataTypes.INTEGER,
-      category: DataTypes.STRING,
-      barcode: DataTypes.STRING
+      address: DataTypes.STRING,
+      square_ft: DataTypes.STRING,
+      rate: DataTypes.DECIMAL(65, 2),
+      existing: DataTypes.BOOLEAN,
+      frequency: DataTypes.STRING,
+      next: DataTypes.STRING,
+      notes: DataTypes.STRING
     },
     {
       timestamps: false
