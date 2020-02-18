@@ -1,0 +1,8 @@
+.company-card{
+    width: 35%;
+    border: honeydew 2px solid;
+    height: 350px;
+    overflow: scroll;
+    line-height: 1.4;  
+    margin: 0 auto;
+}
