@@ -31,6 +31,15 @@ var homeCleaning =
             questions: [
                 {
                     type: "radiogroup",
+                    name: "floor",
+                    title: "What flooring does your home have?",
+                    choices: ["Carpets", "Tile", "Hardwood", "Laminate", "Other"]
+                }
+            ],
+
+            questions: [
+                {
+                    type: "radiogroup",
                     name: "frequency",
                     title: "How often do you clean your home?",
                     choices: ["Never", "Only when guests come", "Often"]
@@ -47,7 +56,7 @@ var officeCleaning =
                 {
                     type: "radiogroup",
                     name: "offices",
-                    title: "How many individual offices are there?",
+                    title: "How many individual cubicles/rooms are there?",
                     choices: ["1", "2", "3", "4+"]
                 }
             ],
@@ -74,8 +83,8 @@ var officeCleaning =
                 {
                     type: "radiogroup",
                     name: "frequency",
-                    title: "How often do you clean your office?",
-                    choices: ["Never", "Sometimes", "Often"]
+                    title: "How often would you need cleaning services?",
+                    choices: ["Weekly", "Bi-weekly", "Monthly"]
                 }
             ]
         }
