@@ -7,7 +7,13 @@ export const homeCleaning = [
         type: "radiogroup",
         name: "bedroom",
         title: "How many bedrooms are in your home?",
-        choices: ["1", "2", "3", "4+"]
+        choices:
+            {
+                1: {value: 1, price: 15},
+                2: {value: 2, price: 20},
+                3: {value: 3, price: 35},
+                4: {value: 4, price: 40}
+            }
       }
     ],
 
@@ -16,21 +22,28 @@ export const homeCleaning = [
         type: "radiogroup",
         name: "bathroom",
         title: "How many bathrooms are in your home?",
-        choices: ["1", "2", "3", "4+"]
+        choices:
+        {
+            1: {value: 1, price: 10},
+            2: {value: 2, price: 20},
+            3: {value: 3, price: 30},
+            4: {value: 4, price: 40}
+        }
       }
     ],
 
     questions: [
       {
-        type: "radiogroup",
+        type: "----",
         name: "squareft",
         title: "In square feet, what is the area of your home?",
-        choices: [
-          "<1000 sqft",
-          "1100-1500 sqft",
-          "1600-2000 sqft",
-          "2000+ sqft"
-        ]
+        choices:
+        {
+            1000: {value: 1000, price: 40},
+            1500: {value: 1500, price: 60},
+            2000: {value: 2000, price: 80},
+            2500: {value: 2500, price: 100}
+        }
       }
     ],
 
@@ -39,7 +52,14 @@ export const homeCleaning = [
         type: "radiogroup",
         name: "floor",
         title: "What flooring does your home have?",
-        choices: ["Carpets", "Tile", "Hardwood", "Laminate", "Other"]
+        choices:
+        {
+            "carpet": {value: "carpet", price: 0},
+            "tile": {value: "tile", price: 5},
+            "hardwood": {value: "hardwood", price: 10},
+            "laminate": {value: "laminate", price: 10},
+            "other": {value: "other", price: 15}
+        }
       }
     ],
 
@@ -48,7 +68,12 @@ export const homeCleaning = [
         type: "radiogroup",
         name: "frequency",
         title: "How often do you clean your home?",
-        choices: ["Never", "Only when guests come", "Often"]
+        choices: 
+        {
+            "never": {value: "never", price: 15},
+            "sometimes":{value: "sometimes", price: 10},
+            "often": {value: "often", price: 5}
+        }
       }
     ]
   }
@@ -60,8 +85,14 @@ export const officeCleaning = [
       {
         type: "radiogroup",
         name: "offices",
-        title: "How many individual cubicles/rooms are there?",
-        choices: ["1", "2", "3", "4+"]
+        title: "How many individual cubicles/tables are there?",
+        choices:
+            {
+                1: {value: 1, price: 15},
+                2: {value: 2, price: 20},
+                3: {value: 3, price: 35},
+                4: {value: 4, price: 40}
+            }
       }
     ],
 
@@ -70,7 +101,13 @@ export const officeCleaning = [
         type: "radiogroup",
         name: "bathroom",
         title: "How many bathrooms does your office have?",
-        choices: ["1", "2", "3", "4+"]
+        choices:
+        {
+            1: {value: 1, price: 10},
+            2: {value: 2, price: 20},
+            3: {value: 3, price: 30},
+            4: {value: 4, price: 40}
+        }
       }
     ],
 
@@ -79,12 +116,13 @@ export const officeCleaning = [
         type: "radiogroup",
         name: "squareft",
         title: "In square feet, what is the area of your office?",
-        choices: [
-          "<1000 sqft",
-          "1100-1500 sqft",
-          "1600-2000 sqft",
-          "2000+ sqft"
-        ]
+        choices:
+        {
+            1000: {value: 1000, price: 40},
+            1500: {value: 1500, price: 60},
+            2000: {value: 2000, price: 80},
+            2500: {value: 2500, price: 100}
+        }
       }
     ],
 
@@ -93,7 +131,12 @@ export const officeCleaning = [
         type: "radiogroup",
         name: "frequency",
         title: "How often would you need cleaning services?",
-        choices: ["Weekly", "Bi-weekly", "Monthly"]
+        choices: 
+        {
+            "weekly": {value: "weekly", price: 5},
+            "biweekly":{value: "biweekly", price: 10},
+            "monthly": {value: "monthly", price: 15}
+        }
       }
     ]
   }
@@ -106,7 +149,12 @@ export const venueCleaning = [
         type: "radiogroup",
         name: "guest-count",
         title: "How many guests are you expecting?",
-        choices: ["0-25", "26-50", "51-75", "76-100", "101+"]
+        choices:{
+            "0-25": {value: "0-25", price: 20},
+            "26-50": {value: "26-50", price:30},
+            "51-75": {value: "51-75", price: 40},
+            "76-100": {value: "76-10", price: 50}
+        }
       }
     ],
 
@@ -115,7 +163,13 @@ export const venueCleaning = [
         type: "radiogroup",
         name: "bathroom",
         title: "How many bathrooms are there in the venue?",
-        choices: ["1", "2", "3", "4+"]
+        choices:
+        {
+            1: {value: 1, price: 10},
+            2: {value: 2, price: 20},
+            3: {value: 3, price: 30},
+            4: {value: 4, price: 40}
+        }
       }
     ],
 
@@ -124,12 +178,13 @@ export const venueCleaning = [
         type: "radiogroup",
         name: "squareft",
         title: "In square feet, what is the area of the venue?",
-        choices: [
-          "<1000 sqft",
-          "1100-1500 sqft",
-          "1600-2000 sqft",
-          "2000+ sqft"
-        ]
+        choices:
+        {
+            1000: {value: 1000, price: 40},
+            1500: {value: 1500, price: 60},
+            2000: {value: 2000, price: 80},
+            2500: {value: 2500, price: 100}
+        }
       }
     ]
   }
