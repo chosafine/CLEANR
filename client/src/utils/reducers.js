@@ -1,3 +1,5 @@
+"use_strict";
+
 import { combineReducers } from "redux";
 import {
   ADD_ADDRESS,
