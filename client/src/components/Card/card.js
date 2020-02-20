@@ -1,12 +1,16 @@
 import React from "react";
 import "./card.css"
 
-function Card (prop) {
+function Card (props) {
+    let questions = props.questions;
+    const listItems = questions.map(question =>
+    <li>
+      {question.title}
+    </li>
+  );
+
     return (
-        <div className = {`"company-card"-${prop.questions}}`>
-        {props.children}
-           
-        </div>
+        {listItems}
     );
 }
 
