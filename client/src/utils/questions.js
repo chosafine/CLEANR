@@ -1,7 +1,6 @@
 "use_strict";
 
-export const homeCleaning = [
-  {
+export const homeCleaning = {
     questions: [
       {
         type: "radiogroup",
@@ -14,10 +13,7 @@ export const homeCleaning = [
                 3: {value: 3, price: 35},
                 4: {value: 4, price: 40}
             }
-      }
-    ],
-
-    questions: [
+      },
       {
         type: "radiogroup",
         name: "bathroom",
@@ -29,10 +25,7 @@ export const homeCleaning = [
             3: {value: 3, price: 30},
             4: {value: 4, price: 40}
         }
-      }
-    ],
-
-    questions: [
+      },
       {
         type: "----",
         name: "squareft",
@@ -44,10 +37,7 @@ export const homeCleaning = [
             2000: {value: 2000, price: 80},
             2500: {value: 2500, price: 100}
         }
-      }
-    ],
-
-    questions: [
+      },
       {
         type: "radiogroup",
         name: "floor",
@@ -60,10 +50,7 @@ export const homeCleaning = [
             "laminate": {value: "laminate", price: 10},
             "other": {value: "other", price: 15}
         }
-      }
-    ],
-
-    questions: [
+      },
       {
         type: "radiogroup",
         name: "frequency",
@@ -76,8 +63,7 @@ export const homeCleaning = [
         }
       }
     ]
-  }
-];
+  };
 
 export const officeCleaning = [
   {
@@ -93,10 +79,8 @@ export const officeCleaning = [
                 3: {value: 3, price: 35},
                 4: {value: 4, price: 40}
             }
-      }
-    ],
+      },
 
-    questions: [
       {
         type: "radiogroup",
         name: "bathroom",
@@ -108,10 +92,8 @@ export const officeCleaning = [
             3: {value: 3, price: 30},
             4: {value: 4, price: 40}
         }
-      }
-    ],
+      },
 
-    questions: [
       {
         type: "radiogroup",
         name: "squareft",
@@ -123,10 +105,8 @@ export const officeCleaning = [
             2000: {value: 2000, price: 80},
             2500: {value: 2500, price: 100}
         }
-      }
-    ],
+      },
 
-    questions: [
       {
         type: "radiogroup",
         name: "frequency",
@@ -155,10 +135,8 @@ export const venueCleaning = [
             "51-75": {value: "51-75", price: 40},
             "76-100": {value: "76-10", price: 50}
         }
-      }
-    ],
+      },
 
-    questions: [
       {
         type: "radiogroup",
         name: "bathroom",
@@ -170,10 +148,8 @@ export const venueCleaning = [
             3: {value: 3, price: 30},
             4: {value: 4, price: 40}
         }
-      }
-    ],
+      },
 
-    questions: [
       {
         type: "radiogroup",
         name: "squareft",
