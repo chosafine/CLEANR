@@ -19,6 +19,6 @@ export function addNew(bool) {
   return { type: NEW, bool };
 }
 
-export function setNextQuestion(filter) {
-  return { type: SET_NEXT_QUESTION, filter };
+export function setNextQuestion(question) {
+  return { type: SET_NEXT_QUESTION, question };
 }
