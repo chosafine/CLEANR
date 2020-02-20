@@ -1,79 +1,43 @@
 "use_strict";
 
 import { combineReducers } from "redux";
-import {
-  ADD_ADDRESS,
-  SQUARE_FT,
-  FREQUENCY,
-  NEXT,
-  NOTES,
-  RATE,
-  NEW
-} from "./actions";
+
+import { QUESTION, NEW, SET_NEXT_QUESTION } from "./actions";
+
+/* function nextQuestion(state, action) {
+  switch (action.type) {
+    case SET_NEXT_QUESTION:
+      return action.question;
+    default:
+      return state
+  }
+} */
 
 function items(state = [], action) {
   switch (action.type) {
-    case ADD_ADDRESS:
+    case QUESTION:
       return [
         ...state,
         {
-          text: action.text,
-          completed: false
-        }
-      ];
-    case SQUARE_FT:
-      return [
-        ...state,
-        {
-          text: action.text,
-          completed: false
-        }
-      ];
-    case FREQUENCY:
-      return [
-        ...state,
-        {
-          text: action.text,
-          completed: false
-        }
-      ];
-    case NEXT:
-      return [
-        ...state,
-        {
-          text: action.text,
-          completed: false
-        }
-      ];
-    case NOTES:
-      return [
-        ...state,
-        {
-          text: action.text,
-          completed: false
-        }
-      ];
-    case RATE:
-      return [
-        ...state,
-        {
-          text: action.text,
-          completed: false
+        value: action.value,
+        price: action.price
         }
       ];
     case NEW:
       return [
         ...state,
         {
-          text: action.text,
-          completed: false
+          bool: action.bool
         }
       ];
     default:
       return state;
   }
 }
+
 const cleaningApp = combineReducers({
+  // nextQuestion,
   items
-});
+})
+
 export default cleaningApp;
