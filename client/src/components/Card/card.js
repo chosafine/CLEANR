@@ -1,17 +1,15 @@
 import React from "react";
-import "./card.css"
+import "./card.css";
 
-function Card (props) {
-    let questions = props.questions;
-    const listItems = questions.map(question =>
-    <li>
-      {question.title}
-    </li>
+function Card(props) {
+  return (
+    <div className="company-card">
+      <p>{props.title}</p>
+      {props.choices.map(choice => (
+        <li key={choice.value}>{choice.value}</li>
+      ))}
+    </div>
   );
-
-    return (
-        {listItems}
-    );
 }
 
-export default Card
+export default Card;
