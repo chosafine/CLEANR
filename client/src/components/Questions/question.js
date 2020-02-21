@@ -1,13 +1,16 @@
 import React from "react";
-import { homeCleaning, officeCleaning, venueCleaning } from "../../utils/questions";
 import Card from "../Card/card";
 
-function Question() {
-  const homeCards = homeCleaning.map(question => <Card question={question}/>);
-  const officeCards = officeCleaning.map(question => <Card question={question}/>);
-  const venueCards = venueCleaning.map(question => <Card question={question}/>);
+function Question(props) {
+  let questions = props.questions;
 
-  return { homeCards, officeCards, venueCards };
+  return (
+    <div>
+      {questions.map(question => (
+        <Card key={question.index} {...question} />
+      ))}
+    </div>
+  );
 }
 
 export default Question;
