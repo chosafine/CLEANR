@@ -1,9 +1,9 @@
 import React from "react";
-import { homeCleaning } from "../../utils/questions";
 import Card from "../Card/card";
 
-function Question() {
-  const questions = homeCleaning.questions;
+function Question(props) {
+  let questions = props.questions;
+
   return (
     <div>
       {questions.map(question => (
