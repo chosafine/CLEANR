@@ -7,7 +7,10 @@ function Card(props) {
     <div className="company-card">
       <p>{props.title}</p>
       {props.choices.map(choice => (
-        <li key={choice.value}>{choice.value}</li>
+      <div>
+        <input type="radio" key="{choice.value}" defaultValue="{choice.value}" />
+        <label htmlFor="{choice.value}">{choice.value}</label>
+      </div>
       ))}
     </div>
   );

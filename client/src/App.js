@@ -12,7 +12,7 @@ function App() {
    <Provider store={store}>
       <div>
         <div><Header /></div>
-        <div><p><Hero /></p></div>
+        <div><Hero /></div>
         <div><Authentication /></div>
       </div>
     </Provider>

@@ -2,16 +2,7 @@
 
 import { combineReducers } from "redux";
 
-import { QUESTION, NEW, SET_NEXT_QUESTION } from "./actions";
-
-/* function nextQuestion(state, action) {
-  switch (action.type) {
-    case SET_NEXT_QUESTION:
-      return action.question;
-    default:
-      return state
-  }
-} */
+import { QUESTION, NEW } from "./actions";
 
 function items(state = [], action) {
   switch (action.type) {
@@ -36,7 +27,6 @@ function items(state = [], action) {
 }
 
 const cleaningApp = combineReducers({
-  // nextQuestion,
   items
 })
 
