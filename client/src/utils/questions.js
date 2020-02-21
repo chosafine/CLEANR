@@ -3,7 +3,7 @@
 export const homeCleaning = {
   questions: [
     {
-      type: "radiogroup",
+      type: "radio",
       name: "bedroom",
       title: "How many bedrooms are in your home?",
       choices: [
@@ -14,7 +14,7 @@ export const homeCleaning = {
       ]
     },
     {
-      type: "radiogroup",
+      type: "radio",
       name: "bathroom",
       title: "How many bathrooms are in your home?",
       choices: [
@@ -36,7 +36,7 @@ export const homeCleaning = {
       ]
     },
     {
-      type: "radiogroup",
+      type: "radio",
       name: "floor",
       title: "What flooring does your home have?",
       choices: [
@@ -48,7 +48,7 @@ export const homeCleaning = {
       ]
     },
     {
-      type: "radiogroup",
+      type: "radio",
       name: "frequency",
       title: "How often do you clean your home?",
       choices: [
@@ -63,7 +63,7 @@ export const homeCleaning = {
 export const officeCleaning = {
   questions: [
     {
-      type: "radiogroup",
+      type: "radio",
       name: "offices",
       title: "How many individual cubicles/tables are there?",
       choices: [
@@ -74,7 +74,7 @@ export const officeCleaning = {
       ]
     },
     {
-      type: "radiogroup",
+      type: "radio",
       name: "bathroom",
       title: "How many bathrooms does your office have?",
       choices: [
@@ -85,7 +85,7 @@ export const officeCleaning = {
       ]
     },
     {
-      type: "radiogroup",
+      type: "radio",
       name: "squareft",
       title: "In square feet, what is the area of your office?",
       choices: [
@@ -96,7 +96,7 @@ export const officeCleaning = {
       ]
     },
     {
-      type: "radiogroup",
+      type: "radio",
       name: "frequency",
       title: "How often would you need cleaning services?",
       choices: [
@@ -111,7 +111,7 @@ export const officeCleaning = {
 export const venueCleaning = {
   questions: [
     {
-      type: "radiogroup",
+      type: "radio",
       name: "guest-count",
       title: "How many guests are you expecting?",
       choices: [
@@ -122,7 +122,7 @@ export const venueCleaning = {
       ]
     },
     {
-      type: "radiogroup",
+      type: "radio",
       name: "bathroom",
       title: "How many bathrooms are there in the venue?",
       choices: [
@@ -133,7 +133,7 @@ export const venueCleaning = {
       ]
     },
     {
-      type: "radiogroup",
+      type: "radio",
       name: "squareft",
       title: "In square feet, what is the area of the venue?",
       choices: [
