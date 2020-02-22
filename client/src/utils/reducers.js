@@ -2,23 +2,15 @@
 
 import { combineReducers } from "redux";
 
-import { QUESTION, NEW } from "./actions";
+import { ADD_QUESTION } from "./actions";
 
 function items(state = [], action) {
   switch (action.type) {
-    case QUESTION:
+    case ADD_QUESTION:
       return [
         ...state,
         {
-        value: action.value,
-        price: action.price
-        }
-      ];
-    case NEW:
-      return [
-        ...state,
-        {
-          bool: action.bool
+          text: action.text
         }
       ];
     default:
@@ -28,6 +20,6 @@ function items(state = [], action) {
 
 const cleaningApp = combineReducers({
   items
-})
+});
 
 export default cleaningApp;

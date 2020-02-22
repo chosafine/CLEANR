@@ -1,12 +1,8 @@
 import React from "react";
-import "./authentication.css"
+import "./authentication.css";
 
 function Authentication() {
-    return (
-        <div className="company-auth">
-            SIGN UP | LOGIN
-        </div>
-    );
+  return <div className="company-auth">SIGN UP | LOGIN</div>;
 }
 
-export default Authentication
+export default Authentication;
