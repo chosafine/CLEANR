@@ -1,21 +1,32 @@
 import React from "react";
 import "./card.css";
 import { connect } from "react-redux";
-import { addQuestion } from "../../utils/actions";
+import { addQuestion, reset } from "../../utils/actions";
+
 
 class AddQuestions extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: "" };
+    this.state = { disabled: false }
   }
 
   handleAddQuestion = value => {
     this.setState({ value }, () => {
       this.props.addQuestion(this.state.value);
-    });
+      this.setState({ disabled: !this.state.disabled })
+    }); 
   };
-
+  
+  handleStartOver = () => {
+      this.props.reset();
+  }
   render = props => {
+    const startOver = (
+      <button type="button" className="btn" onClick={this.handleStartOver()}> Start Over!
+      </button>
+        );
+
     return (
       <div className="company-card">
         <p>{this.props.title}</p>
@@ -23,14 +34,18 @@ class AddQuestions extends React.Component {
           <button
             key={`${choice.value}`}
             value={`${choice.value}`}
+            id="myBtn"
+            disabled={(this.state.disabled) ? "disabled" : ""}
             onClick={e => this.handleAddQuestion(e.target.value)}
+
           >
             {choice.value}
           </button>
         ))}
+        {startOver}
       </div>
     );
   };
 }
 
-export default connect(null, { addQuestion })(AddQuestions);
+export default connect(null, { addQuestion, reset })(AddQuestions);
