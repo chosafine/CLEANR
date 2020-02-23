@@ -6,12 +6,14 @@ import { addQuestion } from "../../utils/actions";
 class AddQuestions extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = {  name: "",
+    				value: "" };
+    
   }
 
-  handleAddQuestion = value => {
-    this.setState({ value }, () => {
-      this.props.addQuestion(this.state.value);
+  handleAddQuestion = (value1, value2) => {
+    this.setState({ name: value1, value: value2 }, () => {
+      this.props.addQuestion(this.state.name, this.state.value);
     });
   };
 
@@ -23,7 +25,8 @@ class AddQuestions extends React.Component {
           <button
             key={`${choice.value}`}
             value={`${choice.value}`}
-            onClick={e => this.handleAddQuestion(e.target.value)}
+            datavalue={this.props.name}
+            onClick={e => this.handleAddQuestion(e.target.getAttribute("datavalue"), e.target.value)}
           >
             {choice.value}
           </button>

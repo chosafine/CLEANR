@@ -7,7 +7,8 @@ export const ADD_QUESTION = "QUESTION";
  * action creators
  */
 
-export const addQuestion = text => ({
+export const addQuestion = (name, text) => ({
   type: ADD_QUESTION,
+  name,
   text
 });
