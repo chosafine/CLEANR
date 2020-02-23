@@ -50,13 +50,9 @@ class Hero extends React.Component {
 
   render() {
     const goBack = (
-      <button
-          type="button"
-          className="btn"
-          onClick={this.displayReset}
-        >
-          Go Back!
-        </button>
+      <button type="button" className="btn" onClick={this.displayReset}>
+        Go Back!
+      </button>
     );
 
     let questions = null;
@@ -84,30 +80,30 @@ class Hero extends React.Component {
       );
     } else {
       questions = (
-      <div>
-        <label>Let's Get Started</label>
-        <button
-          type="button"
-          className="btn"
-          onClick={this.displayHomeQuestions}
-        >
-          Home
-        </button>
-        <button
-          type="button"
-          className="btn"
-          onClick={this.displayBusinessQuestions}
-        >
-          Business
-        </button>
-        <button
-          type="button"
-          className="btn"
-          onClick={this.displayVenueQuestions}
-        >
-          Venue
-        </button>
-      </div>
+        <div>
+          <label>Let's Get Started</label>
+          <button
+            type="button"
+            className="btn"
+            onClick={this.displayHomeQuestions}
+          >
+            Home
+          </button>
+          <button
+            type="button"
+            className="btn"
+            onClick={this.displayBusinessQuestions}
+          >
+            Business
+          </button>
+          <button
+            type="button"
+            className="btn"
+            onClick={this.displayVenueQuestions}
+          >
+            Venue
+          </button>
+        </div>
       );
     }
 

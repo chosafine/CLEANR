@@ -115,10 +115,10 @@ export const venueCleaning = {
       name: "guest-count",
       title: "How many guests are you expecting?",
       choices: [
-       { value: "0-25", price: 20 },
-       { value: "26-50", price: 30 },
-       { value: "51-75", price: 40 },
-      { value: "76-10", price: 50 }
+        { value: "0-25", price: 20 },
+        { value: "26-50", price: 30 },
+        { value: "51-75", price: 40 },
+        { value: "76-10", price: 50 }
       ]
     },
     {
