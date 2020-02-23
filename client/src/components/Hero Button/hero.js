@@ -5,7 +5,6 @@ import {
   venueCleaning
 } from "../../utils/questions";
 import Questions from "../Questions/question";
-
 import "./hero.css";
 
 class Hero extends React.Component {
@@ -48,12 +47,15 @@ class Hero extends React.Component {
     });
   };
 
+
   render() {
     const goBack = (
-      <button type="button" className="btn" onClick={this.displayReset}>
+      <button type="button" className="btn" onClick={this.displayReset} >
         Go Back!
       </button>
     );
+
+  
 
     let questions = null;
 
@@ -81,7 +83,7 @@ class Hero extends React.Component {
     } else {
       questions = (
         <div>
-          <label>Let's Get Started</label>
+          
           <button
             type="button"
             className="btn"
