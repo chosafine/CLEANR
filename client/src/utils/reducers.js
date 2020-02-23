@@ -13,7 +13,8 @@ function items(state = [], action) {
     case ADD_QUESTION:
       return [
         ...state,
-        {
+        { 
+          name: action.name,
           text: action.text
         }
       ];
