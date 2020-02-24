@@ -12,7 +12,8 @@ export const reset = () => ({
   type: "RESET"
 })
 
-export const addQuestion = text => ({
+export const addQuestion = (name, text) => ({
   type: ADD_QUESTION,
+  name,
   text
 });

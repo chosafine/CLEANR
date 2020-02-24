@@ -2,7 +2,8 @@ import React from "react";
 import "./card.css";
 import StartOver from "../Start Over/startover";
 import { connect } from "react-redux";
-import { addQuestion } from "../../utils/actions";
+import { addQuestion, reset } from "../../utils/actions";
+
 
 
 class AddQuestions extends React.Component {
@@ -41,4 +42,4 @@ class AddQuestions extends React.Component {
   }
 };
 
-export default connect(null, { addQuestion })(AddQuestions);
+export default connect(null, { addQuestion, reset })(AddQuestions);
