@@ -1,30 +1,28 @@
-"use_strict";
+'use_strict';
 
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
-import { ADD_QUESTION, RESET } from "./actions";
-
-const INITIAL_STATE = {};
+import { ADD_QUESTION, RESET } from './actions';
 
 function items(state = [], action) {
   switch (action.type) {
-    case RESET:
-      return INITIAL_STATE
     case ADD_QUESTION:
       return [
         ...state,
-        { 
+        {
           name: action.name,
-          text: action.text
-        }
+          text: action.text,
+        },
       ];
+    case RESET:
+      return (state = null);
     default:
       return state;
   }
 }
 
 const cleaningApp = combineReducers({
-  items
+  items,
 });
 
 export default cleaningApp;
