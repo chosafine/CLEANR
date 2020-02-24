@@ -2,13 +2,12 @@
 
 // Requiring our models and passport as we've configured it
 const db = require('../models');
-const passport = require('../config/passport');
-const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
+// const passport = require('../config/passport');
+// const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 
 // eslint-disable-next-line func-names
 module.exports = function (app) {
   app.post('/api/cleaning', (req, res) => {
-    const errors = [];
     db.Cleanings.create({
       // address: req.body.address,
       square_ft: req.body.squareft,
