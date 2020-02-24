@@ -1,21 +1,21 @@
-"use_strict";
+'use_strict';
 
-const bcrypt = require("bcryptjs");
+const bcrypt = require('bcryptjs');
 
 // This is our User model, which exists to hold user information and login information
 // the ID is used when referencing their grocery list (see groceryList.js)
 // bcrypt will be used for hashing and salting of the password as well.
 
 // eslint-disable-next-line func-names
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const Users = sequelize.define(
-    "Users",
+    'Users',
     {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        notNull: true
+        notNull: true,
       },
       first_name: DataTypes.STRING,
       last_name: DataTypes.STRING,
@@ -24,17 +24,17 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false,
         unique: true,
         validate: {
-          isEmail: true
-        }
+          isEmail: true,
+        },
       },
       password: {
         type: DataTypes.STRING,
-        allowNull: false
-      }
+        allowNull: false,
+      },
     },
     {
-      timestamps: false
-    }
+      timestamps: false,
+    },
   );
 
   // Creating a custom method for our User model. This will check if an unhashed
@@ -43,12 +43,12 @@ module.exports = function(sequelize, DataTypes) {
 
   // Hooks are automatic methods that run during various phases of the User Model lifecycle
   // In this case, before a User is created, we will automatically hash their password
-  Users.addHook("beforeCreate", user => {
+  Users.addHook('beforeCreate', (user) => {
     // eslint-disable-next-line no-param-reassign
     user.password = bcrypt.hashSync(
       user.password,
       bcrypt.genSaltSync(10),
-      null
+      null,
     );
   });
 

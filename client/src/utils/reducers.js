@@ -1,8 +1,8 @@
-"use_strict";
+'use_strict';
 
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
-import { ADD_QUESTION, RESET } from "./actions";
+import { ADD_QUESTION, RESET } from './actions';
 
 function items(state = [], action) {
   switch (action.type) {
@@ -11,8 +11,8 @@ function items(state = [], action) {
         ...state,
         {
           name: action.name,
-          text: action.text
-        }
+          text: action.text,
+        },
       ];
     case RESET:
       return (state = null);
@@ -22,7 +22,7 @@ function items(state = [], action) {
 }
 
 const cleaningApp = combineReducers({
-  items
+  items,
 });
 
 export default cleaningApp;

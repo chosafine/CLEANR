@@ -1,9 +1,9 @@
-import React from "react";
-import Card from "../Card/card";
-import Submit from "../Submit/submit";
+import React from 'react';
+import Card from '../Card/card';
+import Submit from '../Submit/submit';
 
 function Question(props) {
-  let questions = props.questions;
+  const { questions } = props;
 
   return (
     <div>

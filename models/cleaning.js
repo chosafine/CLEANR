@@ -1,12 +1,12 @@
-"use_strict";
+'use_strict';
 
 // This is our Cleaning model, we use this to store service information
 // for the client. A cleaning will get an ID, name, type, date, and price based
 // off of information entered into the object being sent from the front end
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const Cleaning = sequelize.define(
-    "Cleanings",
+    'Cleanings',
     {
       id: {
         type: DataTypes.INTEGER,
@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
         defaultValue: DataTypes.NOW,
         primaryKey: true,
         autoIncrement: true,
-        notNull: true
+        notNull: true,
       },
       address: DataTypes.STRING,
       square_ft: DataTypes.STRING,
@@ -22,17 +22,17 @@ module.exports = function(sequelize, DataTypes) {
       existing: DataTypes.BOOLEAN,
       frequency: DataTypes.STRING,
       next: DataTypes.STRING,
-      notes: DataTypes.STRING
+      notes: DataTypes.STRING,
     },
     {
-      timestamps: false
-    }
+      timestamps: false,
+    },
   );
 
-  Cleaning.associate = function(models) {
+  Cleaning.associate = function (models) {
     Cleaning.belongsTo(models.User_Cleanings, {
-      foreignKey: "id",
-      targetKey: "cleaning_id"
+      foreignKey: 'id',
+      targetKey: 'cleaning_id',
     });
   };
 
