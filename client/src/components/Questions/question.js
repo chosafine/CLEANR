@@ -7,8 +7,8 @@ function Question(props) {
 
   return (
     <div>
-      {questions.map(question => (
-        <Card key={question.index} {...question} />
+      {questions.map((question, index) => (
+        <Card key={index} {...question} />
       ))}
       <Submit />
     </div>

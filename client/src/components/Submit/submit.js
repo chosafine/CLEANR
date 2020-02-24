@@ -5,14 +5,15 @@ import StartOver from "../Start Over/startover";
 
 class Submit extends React.Component {
   handleSubmit = () => {
-    /* axios.post(
-  	'http://localhost:3001/students/create-student',
-  	{ example: 'data' },
+  	const currentStore = store.getState();
+  
+    axios.post(
+  	'http://localhost:3001/api/cleaning',
+  	currentStore,
   	{ headers: { 'Content-Type': 'application/json' } }
 	).then(response => {
 		console.log(response.data)
-	}) */
-    console.log(store.getState());
+	})
   };
 
   render() {

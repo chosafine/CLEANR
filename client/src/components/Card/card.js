@@ -20,9 +20,9 @@ class AddQuestions extends React.Component {
     return (
       <div className="company-card">
         <p>{this.props.title}</p>
-        {this.props.choices.map(choice => (
+        {this.props.choices.map((choice, index) => (
           <button
-            key={`${choice.value}`}
+            key={index}
             value={`${choice.value}`}
             datavalue={this.props.name}
             disabled={this.state.disabled ? "disabled" : ""}
