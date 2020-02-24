@@ -8,7 +8,14 @@ module.exports = function(sequelize, DataTypes) {
   const Cleaning = sequelize.define(
     "Cleanings",
     {
-      id: { type: DataTypes.INTEGER, primaryKey: true },
+      id: {
+        type: DataTypes.INTEGER,
+        unique: true,
+        defaultValue: DataTypes.NOW,
+        primaryKey: true,
+        autoIncrement: true,
+        notNull: true
+      },
       address: DataTypes.STRING,
       square_ft: DataTypes.STRING,
       rate: DataTypes.DECIMAL(65, 2),
