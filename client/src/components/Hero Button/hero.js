@@ -47,15 +47,12 @@ class Hero extends React.Component {
     });
   };
 
-
   render() {
     const goBack = (
-      <button type="button" className="btn" onClick={this.displayReset} >
+      <button type="button" className="btn" onClick={this.displayReset}>
         Go Back!
       </button>
     );
-
-  
 
     let questions = null;
 
@@ -83,7 +80,6 @@ class Hero extends React.Component {
     } else {
       questions = (
         <div>
-          
           <button
             type="button"
             className="btn"
