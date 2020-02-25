@@ -32,7 +32,8 @@ class AddQuestions extends React.Component {
                 e.target.value
               )
             }
-            id="myBtn"
+            id="choiceBtn"
+            className="choiceBtn"
           >
             {choice.value}
           </button>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../Card/card';
 import Submit from '../Submit/submit';
+import StartOver from "../Start Over/startover";
 
 function Question(props) {
   const { questions } = props;
@@ -11,6 +12,7 @@ function Question(props) {
         <Card key={index} {...question} />
       ))}
       <Submit />
+      <StartOver />
     </div>
   );
 }

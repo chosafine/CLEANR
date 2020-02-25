@@ -15,7 +15,7 @@ function items(state = [], action) {
         },
       ];
     case RESET:
-      return (state = null);
+      return ( state = [] );
     default:
       return state;
   }
