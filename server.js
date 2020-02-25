@@ -5,12 +5,6 @@ require('dotenv').config();
 // Requiring necessary npm packages
 const express = require('express');
 const session = require('express-session');
-const exphbs = require('express-handlebars');
-
-const flash = require('connect-flash');
-
-// Requiring passport as we've configured it
-const passport = require('./config/passport');
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 3001;
@@ -25,13 +19,6 @@ app.use(express.json());
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
-
-// We need to use sessions to keep track of our user's login status
-app.use(session({ secret: 'secret', resave: true, saveUninitialized: true }));
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.use(flash());
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
