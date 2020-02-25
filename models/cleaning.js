@@ -11,10 +11,9 @@ module.exports = function (sequelize, DataTypes) {
       id: {
         type: DataTypes.INTEGER,
         unique: true,
-        defaultValue: DataTypes.NOW,
+        defaultValue: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true,
-        notNull: true,
+        notNull: true
       },
       address: DataTypes.STRING,
       square_ft: DataTypes.STRING,
