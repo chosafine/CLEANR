@@ -2,6 +2,7 @@ import React from 'react';
 import Card from '../Card/card';
 import Submit from '../Submit/submit';
 import StartOver from "../Start Over/startover";
+import Booking from "../Booking/booking";
 
 function Question(props) {
   const { questions } = props;
@@ -13,6 +14,7 @@ function Question(props) {
       ))}
       <Submit />
       <StartOver />
+      <Booking />
     </div>
   );
 }
