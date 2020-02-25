@@ -9,6 +9,7 @@ const db = require('../models');
 module.exports = function (app) {
   app.post('/api/cleaning', (req, res) => {
     db.Cleanings.create({
+      id: req.body.id,
       // address: req.body.address,
       square_ft: req.body.squareft,
       // rate: req.body.rate,

@@ -12,6 +12,9 @@ class Submit extends React.Component {
       postStore[currentStore.items[property].name] =
         currentStore.items[property].text;
     }
+    
+    // THIS IS TEMPORARY FOR ONLY TESTING THE DATABASE REMOVE LATER
+    postStore["id"] = Math.floor((Math.random() * 1000) + 1);;
 
     axios
       .post("http://localhost:3001/api/cleaning", postStore, {
