@@ -1,7 +1,7 @@
 import React from "react";
 import "./card.css";
 import { connect } from "react-redux";
-import { addQuestion, reset } from "../../utils/actions";
+import { addQuestion } from "../../utils/actions";
 
 class AddQuestions extends React.Component {
   constructor(props) {
@@ -42,4 +42,4 @@ class AddQuestions extends React.Component {
   }
 }
 
-export default connect(null, { addQuestion, reset })(AddQuestions);
+export default connect(null, { addQuestion })(AddQuestions);
