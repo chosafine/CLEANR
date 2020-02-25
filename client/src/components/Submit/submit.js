@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import store from "../../utils/index";
-import StartOver from "../Start Over/startover";
+
 
 class Submit extends React.Component {
   handleSubmit = () => {
@@ -31,7 +31,7 @@ class Submit extends React.Component {
         <button type="button" className="btn" onClick={this.handleSubmit}>
           Submit
         </button>
-        <StartOver />
+        
       </div>
     );
   }
