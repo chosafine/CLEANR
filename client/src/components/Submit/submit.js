@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import store from "../../utils/index";
+import Estimate from "../Estimate/estimate";
 
 
 class Submit extends React.Component {
@@ -31,7 +32,7 @@ class Submit extends React.Component {
         <button type="button" className="btn" onClick={this.handleSubmit}>
           Submit
         </button>
-        
+        <Estimate />
       </div>
     );
   }
