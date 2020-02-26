@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import store from "../../utils/index";
-
+import { Modal, Button } from 'react-bootstrap';
 
 class Submit extends React.Component {
   handleSubmit = () => {
@@ -12,7 +12,7 @@ class Submit extends React.Component {
       postStore[currentStore.items[property].name] =
         currentStore.items[property].text;
     }
-    
+
     // THIS IS TEMPORARY FOR ONLY TESTING THE DATABASE REMOVE LATER
     postStore["id"] = Math.floor((Math.random() * 1000) + 1);;
 
@@ -21,7 +21,7 @@ class Submit extends React.Component {
         headers: { "Content-Type": "application/json" }
       })
       .then(response => {
-        console.log(response.data);
+        console.log(response);
       });
   };
 
@@ -36,4 +36,4 @@ class Submit extends React.Component {
   }
 }
 
-export default Submit;
+export default Submit

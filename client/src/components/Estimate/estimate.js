@@ -51,7 +51,7 @@ class Estimate extends React.Component {
     render() {
         return (
             <div>
-                <p>Current Price: {this.state.price}</p>
+                <p>Current Price: ${this.state.price}</p>
             </div>
         )
     }

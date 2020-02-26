@@ -1,7 +1,6 @@
 /* eslint react/no-multi-comp:0, no-console:0 */
 import "rc-calendar/assets/index.css";
 import React from "react";
-import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import Calendar from "rc-calendar";
 import DatePicker from "rc-calendar/lib/Picker";
@@ -12,6 +11,7 @@ import TimePickerPanel from "rc-time-picker/lib/Panel";
 import moment from "moment";
 import "moment/locale/zh-cn";
 import "moment/locale/en-gb";
+
 const format = "YYYY-MM-DD HH:mm:ss";
 let cn;
 const now = moment();
@@ -70,6 +70,7 @@ class Demo extends React.Component {
       value: props.defaultValue
     };
   }
+
   onChange = value => {
     console.log("DatePicker change: ", value && value.format(format));
     this.setState({
@@ -115,6 +116,8 @@ class Demo extends React.Component {
       disabled: !this.state.disabled
     });
   };
+
+
   render() {
     const state = this.state;
     const calendar = (
@@ -223,8 +226,10 @@ class DemoMultiFormat extends React.Component {
     });
   };
   render() {
+
     const state = this.state;
     return (
+
       <div style={{ width: 400, margin: 20 }}>
         <div style={{ marginBottom: 10 }}>
           Accepts multiple input formats
@@ -241,10 +246,14 @@ class DemoMultiFormat extends React.Component {
           onChange={this.onChange}
           focusablePanel={false}
         />
+
       </div>
+
+
     );
   }
 }
+
 function onStandaloneSelect(value) {
   console.log("onStandaloneSelect");
   console.log(value && value.format(format));
@@ -254,4 +263,4 @@ function onStandaloneChange(value) {
   console.log(value && value.format(format));
 }
 
-export default Demo;
+export default Demo
