@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import store from "../../utils/index";
-import { Modal, Button } from 'react-bootstrap';
 
 class Submit extends React.Component {
   handleSubmit = () => {
@@ -17,7 +16,7 @@ class Submit extends React.Component {
     postStore["id"] = Math.floor((Math.random() * 1000) + 1);;
 
     axios
-      .post("http://localhost:3001/api/cleaning", postStore, {
+      .post("https://localhost:3001/api/cleaning", postStore, {
         headers: { "Content-Type": "application/json" }
       })
       .then(response => {
