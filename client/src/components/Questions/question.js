@@ -22,6 +22,7 @@ class Question extends React.Component {
     })
   }
 
+
   render() {
     const { questions } = this.props;
 
@@ -29,15 +30,18 @@ class Question extends React.Component {
       <Card key={index} {...question} />
     ));
 
-    const getEstimate = <button onClick={this.nextQuote}>Get Free Quote!</button>;
+    const getEstimate = <button className="btn" onClick={this.nextQuote}>Get Free Quote!</button>;
 
     return (
       <div>
         {this.state.showCards ? <div>{questionList} <StartOver /> {getEstimate}</div> : null}
-        {this.state.showBookingInfo ? <div><Estimate /> <Booking /></div> : null}
+        {this.state.showBookingInfo ? <div><Estimate /> <Booking /> <Submit /> </div> : null};
+     
+  
       </div>
     );
   }
 }
 
-export default Question;
+
+export default Question
