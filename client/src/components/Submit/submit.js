@@ -13,7 +13,7 @@ class Submit extends React.Component {
     }
 
     // THIS IS TEMPORARY FOR ONLY TESTING THE DATABASE REMOVE LATER
-    postStore["id"] = Math.floor((Math.random() * 1000) + 1);;
+    postStore["id"] = Math.floor(Math.random() * 1000 + 1);
 
     axios
       .post("https://localhost:3001/api/cleaning", postStore, {
@@ -35,4 +35,4 @@ class Submit extends React.Component {
   }
 }
 
-export default Submit
+export default Submit;

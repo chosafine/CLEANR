@@ -1,9 +1,8 @@
-import React from 'react';
-import Header from './components/Header/header';
-import Hero from './components/Hero Button/hero';
-import Authentication from './components/Authentication/authentication';
-import './App.css';
-
+import React from "react";
+import Header from "./components/Header/header";
+import Hero from "./components/Hero Button/hero";
+import Authentication from "./components/Authentication/authentication";
+import "./App.css";
 
 // As of right now the only loads the onboarding flow, in the future this will need
 // to be changed to be a router with conditionals for user authentication to either show
@@ -11,9 +10,9 @@ import './App.css';
 function App() {
   return (
     <div>
-        <Header />
-        <Hero />
-        <Authentication />
+      <Header />
+      <Hero />
+      <Authentication />
     </div>
   );
 }

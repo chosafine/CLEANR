@@ -4,38 +4,38 @@
 // up by a user ID we can see all of the cleaning IDs assigned to them ->
 // therefore a list of services created by each user!
 
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   const userCleaning = sequelize.define(
-    'User_Cleanings',
+    "User_Cleanings",
     {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        notNull: true,
+        notNull: true
       },
       // reference the products by ID from the products table
       cleaning_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER
       },
       // reference the user by their ID from the user table
       user_id: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'Users',
-          key: 'id',
-        },
-      },
+          model: "Users",
+          key: "id"
+        }
+      }
     },
     {
-      timestamps: false,
-    },
+      timestamps: false
+    }
   );
   // associate the many cleanings to this cleaning list
-  userCleaning.associate = function (models) {
+  userCleaning.associate = function(models) {
     userCleaning.hasMany(models.Cleanings, {
-      foreignKey: 'id',
-      sourceKey: 'cleaning_id',
+      foreignKey: "id",
+      sourceKey: "cleaning_id"
     });
   };
 

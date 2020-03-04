@@ -1,9 +1,9 @@
 // We will call our actions from ./actions and create a reducer
 // that switches on what type of action being sent to the reducer
 // and fires the specific pure function to update the store
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-import { ADD_QUESTION, RESET } from './actions';
+import { ADD_QUESTION, RESET } from "./actions";
 
 function items(state = [], action) {
   switch (action.type) {
@@ -12,18 +12,18 @@ function items(state = [], action) {
         ...state,
         {
           name: action.name,
-          text: action.text,
-        },
+          text: action.text
+        }
       ];
     case RESET:
-      return ( state = [] );
+      return (state = []);
     default:
       return state;
   }
 }
 
 const cleaningApp = combineReducers({
-  items,
+  items
 });
 
 export default cleaningApp;
