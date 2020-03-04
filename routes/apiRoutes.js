@@ -2,8 +2,6 @@
 
 // Requiring our models and passport as we've configured it
 const db = require('../models');
-// const passport = require('../config/passport');
-// const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 
 // eslint-disable-next-line func-names
 module.exports = function (app) {
@@ -24,5 +22,25 @@ module.exports = function (app) {
       .catch((err) => {
         console.log(`Error : ${err}`);
       });
+  });
+  
+  app.get('/api/all', (req, res) => {
+    db.User_Cleanings.findAll({
+      where: { userId: req.user },
+      include: [
+        {
+          model: db.Bookings,
+          required: true
+        }
+      ]
+    }).then(bookings => {
+      // we're doing this god awful black magic because for
+      // some reason sequelize doesn't send back a nice json object for us
+      let bookingData = JSON.stringify(bookings);
+      let actualBookingData = JSON.parse(bookingData);
+      
+      // return json
+      res.json(actualBookingData);
+    });
   });
 };

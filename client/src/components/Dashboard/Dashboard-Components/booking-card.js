@@ -1,20 +1,9 @@
 import React from "react";
-import "./card.css";
-import { connect } from "react-redux";
-import { addQuestion } from "../../utils/actions";
 
-class Card extends React.Component {
+class Booking-Card extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: "", value: "", disabled: false };
   }
-
-  handleAddQuestion = (value1, value2) => {
-    this.setState({ name: value1, value: value2 }, () => {
-      this.props.addQuestion(this.state.name, this.state.value);
-    });
-    this.setState({ disabled: !this.state.disabled });
-  };
 
   render() {
     return (
@@ -43,4 +32,4 @@ class Card extends React.Component {
   }
 }
 
-export default connect(null, { addQuestion })(Card);
+export default Booking-Card;

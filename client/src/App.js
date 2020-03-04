@@ -7,15 +7,9 @@ import './App.css';
 function App() {
   return (
     <div>
-      <div>
         <Header />
-      </div>
-      <div>
         <Hero />
-      </div>
-      <div>
         <Authentication />
-      </div>
     </div>
   );
 }
