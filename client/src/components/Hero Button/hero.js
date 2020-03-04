@@ -7,6 +7,19 @@ import {
 import Questions from "../Questions/question";
 import "./hero.css";
 
+/* This component servers as a controller, we are firstly importing the questions objects for the user onboarding flow and initializing them in the state. We also as setting rendering/displaying all of them to false.
+
+ We then create three helper functions that when ran will set their state value
+ to be true, which then runs against a conditional that will render out the
+ questions component passing through that question object as props.
+ 
+ We also have a displayReset function that will reset the state of all three
+ options and allow the user to pick a new type of business that will render
+ the correct version of the onboarding flow.
+ 
+ Lastly we're by default only going to render three buttons with the
+ corresponding function tied to them to begin the onboarding flow. */
+
 class Hero extends React.Component {
   constructor() {
     super();
