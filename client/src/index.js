@@ -16,5 +16,5 @@ ReactDOM.render(
   document.getElementById('root'),
 );
 
-// for testing purposes the service worker will be disabled, enable for production
-serviceWorker.unregister();
+// Registering Service Worker
+serviceWorker.register();
