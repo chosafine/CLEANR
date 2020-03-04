@@ -1,4 +1,4 @@
-/* eslint react/no-multi-comp:0, no-console:0 */
+// This is our calendar component, still an extreme WIP. More documentation once done.
 import "rc-calendar/assets/index.css";
 import React from "react";
 import PropTypes from "prop-types";

@@ -6,6 +6,24 @@ import {
   venueCleaning
 } from "../../utils/questions";
 
+/* This component generates the estimated price for how much a user would pay
+ for a cleaning service. In order to generate the price some logic has to be done.
+ 
+ Firstly we are initializing a state with an empty price. We then import the store
+ and Questions object (where the price values live) as we need to monitor the store.
+ 
+ We have an onChange function that takes a store and question object as parameters.
+ That function maps out the name of each question and the value chosen, we then
+ go into the specific question and iterate through each value comparing it to
+ the value the user has chosen and grab the price associated with it. We do this
+ for all questions (name properties) in the store until we get a total price.
+ That total price is then written to the empty price value in the store that is
+ displayed on page.
+ 
+ We also have an observeStore function that is a handler that calls the store
+ and watches it for changes. Every time the store is updated we call the onChange
+ function defined above. This is running for the entire lifespan of this component. */
+ 
 class Estimate extends React.Component {
   state = { price: [] };
 
