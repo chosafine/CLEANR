@@ -1,5 +1,6 @@
-'use_strict';
-
+//This file is used to just map up specific .ENV variables to their
+// equivalents in Sequelize, we also have added a use_env_variable: 'JAWSDB_URL'
+// as our test live version of this app runs on heroku
 require('dotenv').config();
 
 module.exports = {

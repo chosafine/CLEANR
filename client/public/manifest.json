@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "CLEANR",
+  "name": "A useful utility for managing clients, taking payment, and scheduling / doing estimates for services.",
   "icons": [
     {
       "src": "favicon.ico",

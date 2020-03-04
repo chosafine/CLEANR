@@ -1,5 +1,3 @@
-'use_strict';
-
 // This is our User Cleaning model, which serves to take cleanings a user has
 // created and also reference them to a user ID. We will keep
 // cleaning IDs and them have User IDs associated with them, so if we look

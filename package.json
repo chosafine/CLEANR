@@ -1,7 +1,7 @@
 {
   "name": "CLEANR",
   "version": "1.0.0",
-  "description": "",
+  "description": "A useful utility for managing clients, taking payment, and scheduling / doing estimates for services.",
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.19.0",
