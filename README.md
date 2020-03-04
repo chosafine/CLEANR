@@ -1,5 +1,4 @@
-CLEANR
-========
+# CLEANR
 
 ![Issues](https://img.shields.io/github/issues/chosafine/CLEANR)
 ![Stars](https://img.shields.io/github/stars/chosafine/CLEANR)
@@ -44,7 +43,6 @@ Business owners can respond to client notes and set scheduling limits for cleani
 
 - **MySQL**
 - **Node.js** 10.13+
-
 
 ## Contributing
 

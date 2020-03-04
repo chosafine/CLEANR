@@ -1,4 +1,4 @@
-/* eslint react/no-multi-comp:0, no-console:0 */
+// This is our calendar component, still an extreme WIP. More documentation once done.
 import "rc-calendar/assets/index.css";
 import React from "react";
 import PropTypes from "prop-types";
@@ -117,7 +117,6 @@ class Demo extends React.Component {
     });
   };
 
-
   render() {
     const state = this.state;
     const calendar = (
@@ -226,10 +225,8 @@ class DemoMultiFormat extends React.Component {
     });
   };
   render() {
-
     const state = this.state;
     return (
-
       <div style={{ width: 400, margin: 20 }}>
         <div style={{ marginBottom: 10 }}>
           Accepts multiple input formats
@@ -246,10 +243,7 @@ class DemoMultiFormat extends React.Component {
           onChange={this.onChange}
           focusablePanel={false}
         />
-
       </div>
-
-
     );
   }
 }
@@ -263,4 +257,4 @@ function onStandaloneChange(value) {
   console.log(value && value.format(format));
 }
 
-export default Demo
+export default Demo;
