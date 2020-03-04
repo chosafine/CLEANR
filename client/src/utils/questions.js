@@ -1,5 +1,6 @@
-'use_strict';
-
+// This is a list of questions that is used for our onboarding process
+// three objects depending on if a user is cleaning a home, business, or venue
+// we used this to calculate prices and to create the cleaning object in the db
 export const homeCleaning = {
   questions: [
     {

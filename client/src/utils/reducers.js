@@ -1,5 +1,6 @@
-'use_strict';
-
+// We will call our actions from ./actions and create a reducer
+// that switches on what type of action being sent to the reducer
+// and fires the specific pure function to update the store
 import { combineReducers } from 'redux';
 
 import { ADD_QUESTION, RESET } from './actions';
