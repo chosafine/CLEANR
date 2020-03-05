@@ -1,5 +1,7 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
+const passport = require("../config/passport");
+const { ensureAuthenticated, forwardAuthenticated } = require("../config/auth");
 
 module.exports = function(app) {
   // Post handle to create a new cleaning when user is being onboarded
@@ -46,5 +48,47 @@ module.exports = function(app) {
       // return json
       res.json(actualBookingData);
     });
+  });
+
+  // Using the passport.authenticate middleware with our local strategy.
+  // If the user has valid login credentials, send them to the members page.
+  // Otherwise the user will be sent an error
+  app.post("/api/login", passport.authenticate("local"), (req, res) => {
+    req.session.userId = user._id;
+    return res.redirect("/");
+  });
+
+  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
+  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
+  // otherwise send back an error
+  app.post("/api/signup", (req, res) => {
+    let errors = [];
+    db.Users.findOne({
+      where: {
+        email: req.body.email
+      }
+    })
+      .then(user => {
+        if (user) {
+          res.send({ msg: "Email already exists" });
+        } else {
+          db.Users.create({
+            first_name: req.body.firstName,
+            last_name: req.body.lastName,
+            email: req.body.email,
+            password: req.body.password
+          })
+            .then(() => {
+              req.session.userId = user._id;
+              return res.redirect("/");
+            })
+            .catch(err => {
+              console.log(err);
+            });
+        }
+      })
+      .catch(err => {
+        console.log(`Error : ${err}`);
+      });
   });
 };

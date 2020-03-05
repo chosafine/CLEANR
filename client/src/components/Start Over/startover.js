@@ -17,9 +17,9 @@ class StartOver extends React.Component {
 
     Array.prototype.forEach.call(buttons, button => (button.disabled = false));
 
-	// For testing purposes we are logging out the new empty store
-	// in the future this should be shown to the user on the page
-	// to indiciate the operation was a success
+    // For testing purposes we are logging out the new empty store
+    // in the future this should be shown to the user on the page
+    // to indiciate the operation was a success
     console.log(store.getState());
   };
 

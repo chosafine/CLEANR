@@ -2,7 +2,10 @@
 require("dotenv").config();
 // Requiring necessary npm packages
 const express = require("express");
-// const session = require('express-session');
+const session = require("express-session");
+// Requiring passport as we've configured it
+const passport = require("./config/passport");
+const flash = require("connect-flash");
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 3001;
@@ -17,6 +20,19 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+// Initializing session information
+app.use(
+  session({
+    secret: "VUU9BKfrsQHsCDeGTmms;ZTJ",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 }
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 // Setting headers to allow CORS requests so post/get request on client side works
 app.use((req, res, next) => {
