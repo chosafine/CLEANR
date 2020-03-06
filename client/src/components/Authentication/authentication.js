@@ -31,30 +31,31 @@ class Authentication extends React.Component {
 
     if (this.state.showLogin) {
       authenticationPage = (
-        <div className="company-auth">
+        <div className="center company-auth">
           <Login />
         </div>
       );
     } else if (this.state.showSignup) {
       authenticationPage = (
-        <div className="company-auth">
+        <div className="center company-auth">
           <Signup />
         </div>
       );
     } else {
       authenticationPage = (
-        <div className="company-auth">
+        <div className="center company-auth">
           <button
             type="button"
-            className="auth-btn"
+            className="btn btn-secondary"
+            style={{margin: '10px'}}
             onClick={this.displaySignup}
           >
             Sign Up
           </button>
-           |
           <button
             type="button"
-            className="auth-btn"
+            className="btn btn-secondary"
+            style={{margin: '10px'}}
             onClick={this.displayLogin}
           >
             Login

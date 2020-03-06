@@ -62,7 +62,7 @@ class Hero extends React.Component {
 
   render() {
     const goBack = (
-      <button type="button" className="btn" onClick={this.displayReset}>
+      <button type="button" className="btn btn-dark" onClick={this.displayReset}>
         Go Back!
       </button>
     );
@@ -71,49 +71,51 @@ class Hero extends React.Component {
 
     if (this.state.displayHomeQuestions) {
       return (questions = (
-        <div>
+        <div className="buttons">
           {goBack}
           <Questions questions={homeCleaning.questions} />
         </div>
       ));
     } else if (this.state.displayBusinessQuestions) {
       questions = (
-        <div>
+        <div className="buttons">
           {goBack}
           <Questions questions={officeCleaning.questions} />
         </div>
       );
     } else if (this.state.displayVenueQuestions) {
       questions = (
-        <div>
+        <div className="buttons">
           {goBack}
           <Questions questions={venueCleaning.questions} />
         </div>
       );
     } else {
       questions = (
-        <div>
+        <div className="buttons">
+          <div class="btn-group btn-group-lg" role="group" aria-label="Options for business type">
           <button
             type="button"
-            className="btn"
+            className="btn btn-dark"
             onClick={this.displayHomeQuestions}
           >
             Home
           </button>
           <button
             type="button"
-            className="btn"
+            className="btn btn-dark"
             onClick={this.displayBusinessQuestions}
           >
             Business
           </button>
           <button
             type="button"
-            className="btn"
+            className="btn btn-dark"
             onClick={this.displayVenueQuestions}
           >
             Venue
           </button>
+          </div>
         </div>
       );
     }

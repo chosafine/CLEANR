@@ -9,7 +9,7 @@ import "./App.css";
 // dashboard for existing users or new user flow
 function App() {
   return (
-    <div>
+    <div className="container">
       <Header />
       <Hero />
       <Authentication />

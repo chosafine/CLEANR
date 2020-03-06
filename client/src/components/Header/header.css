@@ -1,6 +1,6 @@
-.company-name {
-  border: 3px solid grey;
-  width: 35%;
-  text-align: center;
-  margin: 0 auto;
+.jumbotron{
+    background-color: #fff;
+    text-align:center;
+    max-width: 600px;
+    margin: 0 auto;
 }
