@@ -14,7 +14,7 @@ class Booking-Card extends React.Component {
   }
   
   handleSubmit(event) {
-  	// this needs to be a post request update the db with the notes
+  	// this needs to be a post request to update the db with the notes
     alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
   }

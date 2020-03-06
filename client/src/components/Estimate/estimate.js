@@ -23,7 +23,7 @@ import {
  We also have an observeStore function that is a handler that calls the store
  and watches it for changes. Every time the store is updated we call the onChange
  function defined above. This is running for the entire lifespan of this component. */
- 
+
 class Estimate extends React.Component {
   state = { price: [] };
 

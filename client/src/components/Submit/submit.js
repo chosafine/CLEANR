@@ -23,7 +23,7 @@ class Submit extends React.Component {
 
     // THIS IS TEMPORARY FOR ONLY TESTING THE DATABASE REMOVE LATER
     // we do not have a userid or id system currently so for testing
-    // we are 
+    // we are
     postStore["id"] = Math.floor(Math.random() * 1000 + 1);
 
     axios
@@ -31,8 +31,8 @@ class Submit extends React.Component {
         headers: { "Content-Type": "application/json" }
       })
       .then(response => {
-      	// As of right now for development purposes we are logging the response
-      	// ideally we'd want to redirect them to the dashboard once implemented
+        // As of right now for development purposes we are logging the response
+        // ideally we'd want to redirect them to the dashboard once implemented
         console.log(response);
       });
   };

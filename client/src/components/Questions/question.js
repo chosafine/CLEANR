@@ -5,7 +5,6 @@ import StartOver from "../Start Over/startover";
 import Booking from "../Booking/booking";
 import Estimate from "../Estimate/estimate";
 
-
 /* This component servers as a controller, where we need to render out parts
  of the user onboarding flow depending on where the user is and what is given.
  We take the props given to use and then set a state of the onboarding cards

@@ -18,7 +18,7 @@ import { addQuestion } from "../../utils/actions";
  and value and put it into the state, and then take those state values and pass them
  into our store using the action. We do this as we're not able to explicitly read the
  value from the page. */
- 
+
 class Card extends React.Component {
   constructor(props) {
     super(props);
@@ -48,8 +48,8 @@ class Card extends React.Component {
                 e.target.value
               )
             }
-            id="choiceBtn"
-            className="choiceBtn"
+            className="btn btn-primary"
+            style={{marginLeft: '10px'}}
           >
             {choice.value}
           </button>
