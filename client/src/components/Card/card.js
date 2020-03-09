@@ -48,7 +48,7 @@ class Card extends React.Component {
                 e.target.value
               )
             }
-            className="btn btn-primary"
+            className="btn btn-primary choiceBtn"
             style={{ marginLeft: "10px" }}
           >
             {choice.value}
