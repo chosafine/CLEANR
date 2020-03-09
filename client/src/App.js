@@ -27,7 +27,7 @@ function App() {
           </Route>
           <Route path="/dashboard" component={Dashboard}/>
           <Route path="*">
-            <h1>Page Not Found! Please go <Link to="/">Home!</Link></h1>
+            <h2 className="text-center">Page Not Found! Please go <Link to="/">Home!</Link></h2>
           </Route>
         </Switch>
     </Router>
