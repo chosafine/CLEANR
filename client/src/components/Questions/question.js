@@ -48,8 +48,8 @@ class Question extends React.Component {
     ));
 
     const getEstimate = (
-      <button className="btn" onClick={this.nextQuote}>
-        Get Free Quote!
+      <button className="btn btn-success mt-2" onClick={this.nextQuote}>
+        Get Quote!
       </button>
     );
 
@@ -65,7 +65,6 @@ class Question extends React.Component {
             <Estimate /> <Booking /> <Submit />{" "}
           </div>
         ) : null}
-        ;
       </div>
     );
   }

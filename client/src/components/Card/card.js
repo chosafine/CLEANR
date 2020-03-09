@@ -1,5 +1,4 @@
 import React from "react";
-import "./card.css";
 import { connect } from "react-redux";
 import { addQuestion } from "../../utils/actions";
 
@@ -34,9 +33,10 @@ class Card extends React.Component {
 
   render() {
     return (
-      <div className="company-card">
-        <p>{this.props.title}</p>
-        {this.props.choices.map((choice, index) => (
+      <div className="company-card card">
+  <div className="card-body">
+    <h5 className="card-title">{this.props.title}</h5>
+            {this.props.choices.map((choice, index) => (
           <button
             key={index}
             value={`${choice.value}`}
@@ -49,12 +49,13 @@ class Card extends React.Component {
               )
             }
             className="btn btn-primary"
-            style={{marginLeft: '10px'}}
+            style={{ marginLeft: "10px" }}
           >
             {choice.value}
           </button>
         ))}
-      </div>
+  </div>
+</div>
     );
   }
 }

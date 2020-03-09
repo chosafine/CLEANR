@@ -27,7 +27,7 @@ class StartOver extends React.Component {
     return (
       <button
         type="button"
-        className="btn"
+        className="btn btn-danger mt-2 mr-4"
         onClick={e => this.handleStartOver()}
       >
         {" "}

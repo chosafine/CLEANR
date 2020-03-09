@@ -1,8 +1,8 @@
 import React from "react";
-import axios from "axios";
 import { Formik } from "formik";
+import axios from "axios";
 
-function Login() {
+function Login(props) {
   return (
     <div>
       <Formik
@@ -24,9 +24,21 @@ function Login() {
         onSubmit={values => {
           axios({
             method: "post",
-            url: "http://localhost:3001/api/login",
+            url: "/api/login",
             data: values
-          }).then(response => console.log(response));
+          })
+            .then(res => {
+              if (res.status === 200) {
+                props.handleLogin();
+              } else {
+                const error = new Error(res.error);
+                throw error;
+              }
+            })
+            .catch(err => {
+              console.error(err);
+              alert("Error logging in please try again");
+            });
         }}
       >
         {({
@@ -39,29 +51,49 @@ function Login() {
           isSubmitting
         }) => (
           <form onSubmit={handleSubmit}>
-            <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="rob@delany.com"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.email}
-            />
-            <br />
-            {errors.email && touched.email && errors.email}
-            <label htmlFor="password"> Password:</label>
-            <input
-              type="password"
-              name="password"
-              placeholder="password"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.password}
-            />
-            {errors.password && touched.password && errors.password}
-            <br />
-            <button type="submit" disabled={isSubmitting}>
+            <div className="form-group row">
+              <label className="col-sm-2 col-form-label" htmlFor="email">
+                Email:
+              </label>
+              <div className="col-sm-10">
+                <input
+                  className="form-control"
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="rob@delany.com"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.email}
+                />
+                <small id="emailHelp" className="form-text text-muted">
+                  {errors.email && touched.email && errors.email}
+                </small>
+              </div>
+            </div>
+            <div className="form-group row">
+              <label className="col-sm-2 col-form-label" htmlFor="password">
+                Password:
+              </label>
+              <div className="col-sm-10">
+                <input
+                  className="form-control"
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="password"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.password}
+                />
+                {errors.password && touched.password && errors.password}
+              </div>
+            </div>
+            <button
+              type="submit"
+              className="btn btn-primary"
+              disabled={isSubmitting}
+            >
               Submit
             </button>
           </form>

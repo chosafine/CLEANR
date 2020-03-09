@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import Booking-Card from "../Dashboard-Components/booking-card"
+import BookingCard from "./Dashboard-Components/bookingcard"
 
 class Dashboard extends React.Component {
   getBookings = () => {
@@ -14,13 +14,14 @@ class Dashboard extends React.Component {
   };
 
   render() {
-    const bookings = this.getBookings();
+    /* const bookings = this.getBookings();
 
     const bookingList = bookings.map((booking, index) => (
-      <Booking-Card key={index} {...booking} />
+      <BookingCard key={index} {...booking} />
     ));
 
-    return <div>{bookingList}</div>;
+    return <div>{bookingList}</div>; */
+    return <p>Im a dashboard!</p>;
   }
 }
 
