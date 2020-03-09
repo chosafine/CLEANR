@@ -5,7 +5,6 @@ const express = require("express");
 const session = require("express-session");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
-const flash = require("connect-flash");
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 3001;
@@ -27,12 +26,14 @@ app.use(
     secret: "VUU9BKfrsQHsCDeGTmms;ZTJ",
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 60000 }
+    cookie: {
+      maxAge: 604800000,
+      httpOnly: false
+    }
   })
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
 
 // Setting headers to allow CORS requests so post/get request on client side works
 app.use((req, res, next) => {

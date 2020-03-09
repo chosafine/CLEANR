@@ -64,7 +64,7 @@ class Hero extends React.Component {
     const goBack = (
       <button
         type="button"
-        className="btn btn-dark"
+        className="btn btn-dark mb-2"
         onClick={this.displayReset}
       >
         Go Back!
@@ -98,7 +98,7 @@ class Hero extends React.Component {
       questions = (
         <div className="buttons">
           <div
-            class="btn-group btn-group-lg"
+            className="btn-group btn-group-lg"
             role="group"
             aria-label="Options for business type"
           >

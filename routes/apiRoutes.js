@@ -54,8 +54,7 @@ module.exports = function(app) {
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
-    req.session.userId = user._id;
-    return res.redirect("/");
+    res.sendStatus(200);
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to

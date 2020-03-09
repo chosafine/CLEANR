@@ -1,6 +1,6 @@
 import React from "react";
 
-class Booking-Card extends React.Component {
+class BookingCard extends React.Component {
   constructor(props) {
     super(props);
     
@@ -38,4 +38,4 @@ class Booking-Card extends React.Component {
   }
 }
 
-export default Booking-Card;
+export default BookingCard;
