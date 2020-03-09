@@ -25,19 +25,38 @@ class Authentication extends React.Component {
       showSignup: !this.state.showSignup
     });
   };
+  
+    displayReset = () => {
+    this.setState({
+      showLogin: false,
+      showSignup: false,
+    });
+  };
 
   render() {
+    const goBack = (
+      <button
+        type="button"
+        className="btn btn-dark mb-2"
+        onClick={this.displayReset}
+      >
+        Go Back!
+      </button>
+    );
+    
     let authenticationPage = null;
 
     if (this.state.showLogin) {
       authenticationPage = (
         <div className="center company-auth">
+        {goBack}
           <Login />
         </div>
       );
     } else if (this.state.showSignup) {
       authenticationPage = (
         <div className="center company-auth">
+        {goBack}
           <Signup />
         </div>
       );
@@ -47,7 +66,7 @@ class Authentication extends React.Component {
           <button
             type="button"
             className="btn btn-secondary"
-            style={{margin: '10px'}}
+            style={{ margin: "10px" }}
             onClick={this.displaySignup}
           >
             Sign Up
@@ -55,17 +74,17 @@ class Authentication extends React.Component {
           <button
             type="button"
             className="btn btn-secondary"
-            style={{margin: '10px'}}
+            style={{ margin: "10px" }}
             onClick={this.displayLogin}
           >
             Login
           </button>
         </div>
-    );
+      );
+    }
+
+    return <div>{authenticationPage}</div>;
   }
-  
-   return <div>{authenticationPage}</div>;
-   }
 }
 
 export default Authentication;

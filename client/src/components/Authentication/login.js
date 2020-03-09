@@ -39,29 +39,39 @@ function Login() {
           isSubmitting
         }) => (
           <form onSubmit={handleSubmit}>
-            <label htmlFor="email">Email:</label>
+          <div className="form-group row">
+            <label className="col-sm-2 col-form-label" htmlFor="email">Email:</label>
+            <div class="col-sm-10">
             <input
+              className="form-control"
               type="email"
               name="email"
+              id="email"
               placeholder="rob@delany.com"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.email}
             />
-            <br />
-            {errors.email && touched.email && errors.email}
-            <label htmlFor="password"> Password:</label>
+            <small id="emailHelp" class="form-text text-muted">{errors.email && touched.email && errors.email}</small>
+            </div>
+            </div>
+            <div className="form-group row">
+            <label className="col-sm-2 col-form-label" htmlFor="password">Password:</label>
+            <div class="col-sm-10">
             <input
+            className="form-control"
               type="password"
               name="password"
+              id="password"
               placeholder="password"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.password}
             />
             {errors.password && touched.password && errors.password}
-            <br />
-            <button type="submit" disabled={isSubmitting}>
+            </div>
+            </div>
+            <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
               Submit
             </button>
           </form>
