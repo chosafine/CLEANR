@@ -61,7 +61,11 @@ class Authentication extends React.Component {
     let authenticationPage = null;
 
     if (session) {
-      authenticationPage = <div className="center company-auth"><DashboardButton /></div>;
+      authenticationPage = (
+        <div className="center company-auth">
+          <DashboardButton />
+        </div>
+      );
     } else if (this.state.showLogin) {
       authenticationPage = (
         <div className="center company-auth">

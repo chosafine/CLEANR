@@ -34,28 +34,28 @@ class Card extends React.Component {
   render() {
     return (
       <div className="company-card card">
-  <div className="card-body">
-    <h5 className="card-title">{this.props.title}</h5>
-            {this.props.choices.map((choice, index) => (
-          <button
-            key={index}
-            value={`${choice.value}`}
-            datavalue={this.props.name}
-            disabled={this.state.disabled ? "disabled" : ""}
-            onClick={e =>
-              this.handleAddQuestion(
-                e.target.getAttribute("datavalue"),
-                e.target.value
-              )
-            }
-            className="btn btn-primary choiceBtn"
-            style={{ marginLeft: "10px" }}
-          >
-            {choice.value}
-          </button>
-        ))}
-  </div>
-</div>
+        <div className="card-body">
+          <h5 className="card-title">{this.props.title}</h5>
+          {this.props.choices.map((choice, index) => (
+            <button
+              key={index}
+              value={`${choice.value}`}
+              datavalue={this.props.name}
+              disabled={this.state.disabled ? "disabled" : ""}
+              onClick={e =>
+                this.handleAddQuestion(
+                  e.target.getAttribute("datavalue"),
+                  e.target.value
+                )
+              }
+              className="btn btn-primary choiceBtn"
+              style={{ marginLeft: "10px" }}
+            >
+              {choice.value}
+            </button>
+          ))}
+        </div>
+      </div>
     );
   }
 }

@@ -29,7 +29,8 @@ function Signup(props) {
             method: "post",
             url: "/api/signup",
             data: values
-          }) .then(res => {
+          })
+            .then(res => {
               if (res.status === 200) {
                 props.handleLogin();
               } else {
@@ -120,7 +121,7 @@ function Signup(props) {
                 />
               </div>
             </div>
-           {errors.password && touched.password && errors.password}
+            {errors.password && touched.password && errors.password}
             <button
               type="submit"
               className="btn btn-primary"

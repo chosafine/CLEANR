@@ -1,5 +1,6 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
+const Sequelize = require("sequelize");
 const passport = require("../config/passport");
 
 module.exports = function(app) {
@@ -18,36 +19,45 @@ module.exports = function(app) {
     })
       // Send back response for page to handle
       .then(response => {
-        res.json(response);
-      })
-      // Error handler
-      .catch(err => {
-        console.log(`Error : ${err}`);
+        db.User_Cleanings.create({
+          user_id: req.user,
+          cleaning_id: req.body.id
+        })
+          .then(data => {
+            res.json(data);
+          })
+          // Error handler
+          .catch(err => {
+            console.log(`Error : ${err}`);
+          });
       });
   });
 
   // Get request to get all of a users booked cleanings by using their user ID to find cleanings in relational database
   app.get("/api/all", (req, res) => {
-    console.log(req.user);
     // The where is asking for the user ID so we can use that to include bookings
     // with the same id to ensure we're only getting that specific users cleanings
     db.User_Cleanings.findAll({
-      where: { userId: req.user },
+      where: { user_id: req.user },
       include: [
         {
           model: db.Cleanings,
           required: true
         }
       ]
-    }).then(bookings => {
-      // we're doing this god awful black magic because for
-      // some reason sequelize doesn't send back a nice json object for us
-      let bookingData = JSON.stringify(bookings);
-      let actualBookingData = JSON.parse(bookingData);
-
-      // return json
-      res.json(actualBookingData);
-    });
+    })
+      .then(cleanings => {
+        let arr = [];
+        for (cleaning in cleanings) {
+          arr.push(cleanings[cleaning].dataValues.cleaning_id);
+        }
+        return arr;
+      })
+      .then(arr => {
+        db.Cleanings.findAll({
+          where: { id: { [Sequelize.Op.in]: arr } }
+        }).then(response => res.json(response));
+      });
   });
 
   // Using the passport.authenticate middleware with our local strategy.
@@ -58,7 +68,7 @@ module.exports = function(app) {
     // bits of the front end, such as pulling items from the database
     res.json({
       email: req.user.email,
-      id: req.user.id
+      user: req.user.id
     });
   });
 
@@ -85,7 +95,7 @@ module.exports = function(app) {
               req.session.userId = user.dataValues.id;
               return res.json({
                 email: user.dataValues.id,
-                id: user.dataValues.id
+                user: user.dataValues.id
               });
             })
             .catch(err => {
@@ -96,5 +106,18 @@ module.exports = function(app) {
       .catch(err => {
         console.log(`Error : ${err}`);
       });
+  });
+  
+  	// Simple destroy session route for logging out
+    app.get("/api/logout", (req, res, next) => {
+    if (req.session) {
+      req.session.destroy(error => {
+        if (error) {
+          return next(error);
+        } else {
+          return res.json();
+        }
+      });
+    }
   });
 };

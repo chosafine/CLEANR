@@ -27,7 +27,7 @@ class Submit extends React.Component {
     postStore["id"] = Math.floor(Math.random() * 1000 + 1);
 
     axios
-      .post("https://localhost:3001/api/cleaning", postStore, {
+      .post("/api/cleaning", postStore, {
         headers: { "Content-Type": "application/json" }
       })
       .then(response => {
