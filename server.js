@@ -7,7 +7,7 @@ const session = require("express-session");
 const passport = require("./config/passport");
 
 // Setting up port and requiring models for syncing
-const PORT = process.env.PORT || 3001;
+const PORT = 3001;
 const db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
@@ -46,8 +46,8 @@ app.use((req, res, next) => {
 });
 
 // Setting our API routes and general HTML handler
-require("./routes/htmlRoutes.js")(app);
 require("./routes/apiRoutes.js")(app);
+require("./routes/htmlRoutes.js")(app);
 
 // Server must be sync'd to MySQL database on launch, ensuring that happens before listener spins up
 db.sequelize.sync({ force: false, logging: false }).then(() => {

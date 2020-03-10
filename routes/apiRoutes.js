@@ -1,7 +1,6 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
-const { ensureAuthenticated, forwardAuthenticated } = require("../config/auth");
 
 module.exports = function(app) {
   // Post handle to create a new cleaning when user is being onboarded
@@ -29,13 +28,14 @@ module.exports = function(app) {
 
   // Get request to get all of a users booked cleanings by using their user ID to find cleanings in relational database
   app.get("/api/all", (req, res) => {
+    console.log(req.user);
     // The where is asking for the user ID so we can use that to include bookings
     // with the same id to ensure we're only getting that specific users cleanings
     db.User_Cleanings.findAll({
       where: { userId: req.user },
       include: [
         {
-          model: db.Bookings,
+          model: db.Cleanings,
           required: true
         }
       ]
@@ -54,14 +54,18 @@ module.exports = function(app) {
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
-    res.sendStatus(200);
+    // When user is logged in we're also going to set an user id header for various
+    // bits of the front end, such as pulling items from the database
+    res.json({
+      email: req.user.email,
+      id: req.user.id
+    });
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", (req, res) => {
-    let errors = [];
     db.Users.findOne({
       where: {
         email: req.body.email
@@ -77,9 +81,12 @@ module.exports = function(app) {
             email: req.body.email,
             password: req.body.password
           })
-            .then(() => {
-              req.session.userId = user._id;
-              return res.redirect("/");
+            .then(user => {
+              req.session.userId = user.dataValues.id;
+              return res.json({
+                email: user.dataValues.id,
+                id: user.dataValues.id
+              });
             })
             .catch(err => {
               console.log(err);

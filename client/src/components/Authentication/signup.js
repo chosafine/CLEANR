@@ -10,7 +10,8 @@ function Signup(props) {
           firstName: "",
           lastName: "",
           email: "",
-          password: ""
+          password: "",
+          confirmPassword: ""
         }}
         validate={values => {
           const errors = {};
@@ -26,9 +27,20 @@ function Signup(props) {
         onSubmit={values => {
           axios({
             method: "post",
-            url: "http://localhost:3001/api/signup",
+            url: "/api/signup",
             data: values
-          }).then(response => props.handleLogin());
+          }) .then(res => {
+              if (res.status === 200) {
+                props.handleLogin();
+              } else {
+                const error = new Error(res.error);
+                throw error;
+              }
+            })
+            .catch(err => {
+              console.error(err);
+              alert("Error signing up please try again");
+            });
         }}
       >
         {({
@@ -106,9 +118,9 @@ function Signup(props) {
                   onBlur={handleBlur}
                   value={values.password}
                 />
-                {errors.password && touched.password && errors.password}
               </div>
             </div>
+           {errors.password && touched.password && errors.password}
             <button
               type="submit"
               className="btn btn-primary"

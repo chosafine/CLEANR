@@ -4,19 +4,27 @@ import BookingCard from "./Dashboard-Components/bookingcard"
 
 class Dashboard extends React.Component {
   getBookings = () => {
-    axios
-      .get("https://localhost:3001/api/all", {
-        headers: { "Content-Type": "application/json" }
-      })
-      .then(response => {
-        return response;
-      });
+     axios({
+            method: "get",
+            url: "/api/all"
+          })
+            .then(res => {
+              if (res.status === 200) {
+                console.log(res)
+              } else {
+                const error = new Error(res.error);
+                throw error;
+              }
+            })
+            .catch(err => {
+              console.error(err);
+            });
   };
 
   render() {
-    /* const bookings = this.getBookings();
+    const bookings = this.getBookings();
 
-    const bookingList = bookings.map((booking, index) => (
+    /* const bookingList = bookings.map((booking, index) => (
       <BookingCard key={index} {...booking} />
     ));
 
