@@ -20,7 +20,7 @@ module.exports = function(app) {
       // Send back response for page to handle
       .then(response => {
         db.User_Cleanings.create({
-          user_id: req.user,
+          user_id: req.session.userId || req.user,
           cleaning_id: req.body.id
         })
           .then(data => {
@@ -38,7 +38,7 @@ module.exports = function(app) {
     // The where is asking for the user ID so we can use that to include bookings
     // with the same id to ensure we're only getting that specific users cleanings
     db.User_Cleanings.findAll({
-      where: { user_id: req.user },
+      where: { user_id: req.session.userId || req.user },
       include: [
         {
           model: db.Cleanings,
@@ -67,7 +67,6 @@ module.exports = function(app) {
     // When user is logged in we're also going to set an user id header for various
     // bits of the front end, such as pulling items from the database
     res.json({
-      email: req.user.email,
       user: req.user.id
     });
   });
@@ -94,7 +93,6 @@ module.exports = function(app) {
             .then(user => {
               req.session.userId = user.dataValues.id;
               return res.json({
-                email: user.dataValues.id,
                 user: user.dataValues.id
               });
             })
@@ -107,9 +105,9 @@ module.exports = function(app) {
         console.log(`Error : ${err}`);
       });
   });
-  
-  	// Simple destroy session route for logging out
-    app.get("/api/logout", (req, res, next) => {
+
+  // Simple destroy session route for logging out
+  app.get("/api/logout", (req, res, next) => {
     if (req.session) {
       req.session.destroy(error => {
         if (error) {

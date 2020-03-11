@@ -77,21 +77,21 @@ class Hero extends React.Component {
       return (questions = (
         <div className="buttons">
           {goBack}
-          <Questions questions={homeCleaning.questions} />
+          <Questions questions={homeCleaning.questions} type="home" />
         </div>
       ));
     } else if (this.state.displayBusinessQuestions) {
       questions = (
         <div className="buttons">
           {goBack}
-          <Questions questions={officeCleaning.questions} />
+          <Questions questions={officeCleaning.questions} type="business" />
         </div>
       );
     } else if (this.state.displayVenueQuestions) {
       questions = (
         <div className="buttons">
           {goBack}
-          <Questions questions={venueCleaning.questions} />
+          <Questions questions={venueCleaning.questions} type="venue" />
         </div>
       );
     } else {

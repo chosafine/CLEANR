@@ -5,6 +5,7 @@ import {
   officeCleaning,
   venueCleaning
 } from "../../utils/questions";
+import Booking from "../Booking/booking";
 
 /* This component generates the estimated price for how much a user would pay
  for a cleaning service. In order to generate the price some logic has to be done.
@@ -25,7 +26,13 @@ import {
  function defined above. This is running for the entire lifespan of this component. */
 
 class Estimate extends React.Component {
-  state = { price: [] };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      price: []
+    };
+  }
 
   componentDidMount() {
     this.observeStore(store, this.onChange);
@@ -37,10 +44,11 @@ class Estimate extends React.Component {
     for (const property in store.items) {
       const name = store.items[property].name;
       const value = store.items[property].text;
-
+      // eslint-disable-next-line
       object.questions.forEach(element => {
         if (element.name === name) {
           for (const choice in element.choices) {
+            // eslint-disable-next-line
             if (element.choices[choice].value == value) {
               let price = element.choices[choice].price;
               totalPrice += price;
@@ -53,12 +61,23 @@ class Estimate extends React.Component {
   };
 
   observeStore = (store, onChange) => {
+    let typeOfCleaning;
+
+    if (this.props.type === "home") {
+      typeOfCleaning = homeCleaning;
+    } else if (this.props.type === "business") {
+      typeOfCleaning = officeCleaning;
+    } else if (this.props.type === "venue") {
+      typeOfCleaning = venueCleaning;
+    }
+
     let currentState;
     function handleChange() {
+      console.log(typeOfCleaning);
       let nextState = store.getState();
       if (nextState !== currentState) {
         currentState = nextState;
-        onChange(currentState, homeCleaning);
+        onChange(currentState, typeOfCleaning);
       }
     }
     let unsubscribe = store.subscribe(handleChange);
@@ -69,7 +88,12 @@ class Estimate extends React.Component {
   render() {
     return (
       <div>
-        <p>Current Price: ${this.state.price}</p>
+        <h4>
+          <span className="font-weight-bold">
+            Current Price: ${this.state.price}
+          </span>
+        </h4>
+        <Booking />
       </div>
     );
   }
