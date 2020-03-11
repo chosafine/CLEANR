@@ -2,7 +2,6 @@ import React from "react";
 import Card from "../Card/card";
 import Submit from "../Submit/submit";
 import StartOver from "../Start Over/startover";
-import Booking from "../Booking/booking";
 import Estimate from "../Estimate/estimate";
 
 /* This component servers as a controller, where we need to render out parts
@@ -62,7 +61,7 @@ class Question extends React.Component {
         ) : null}
         {this.state.showBookingInfo ? (
           <div>
-            <Estimate /> <Booking /> <Submit />{" "}
+            <Estimate type={this.props.type} /> <Submit />{" "}
           </div>
         ) : null}
       </div>

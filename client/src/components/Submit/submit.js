@@ -40,7 +40,11 @@ class Submit extends React.Component {
   render() {
     return (
       <div>
-        <button type="button" className="btn" onClick={this.handleSubmit}>
+        <button
+          type="button"
+          className="btn btn-success mt-2"
+          onClick={this.handleSubmit}
+        >
           Submit
         </button>
       </div>

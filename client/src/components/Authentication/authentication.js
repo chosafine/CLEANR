@@ -2,7 +2,6 @@ import React from "react";
 import "./authentication.css";
 import Login from "./login";
 import Signup from "./signup";
-import DashboardButton from "./dashboard-button";
 import cookie from "react-cookie";
 
 // This is a dummy authentication card, TBA actual user authentication.
@@ -19,10 +18,7 @@ class Authentication extends React.Component {
   }
 
   handleLogin = () => {
-    this.setState({
-      showLogin: false,
-      showSignup: false
-    });
+    window.location.reload(false);
   };
 
   displayLogin = () => {
@@ -61,11 +57,7 @@ class Authentication extends React.Component {
     let authenticationPage = null;
 
     if (session) {
-      authenticationPage = (
-        <div className="center company-auth">
-          <DashboardButton />
-        </div>
-      );
+      authenticationPage = null;
     } else if (this.state.showLogin) {
       authenticationPage = (
         <div className="center company-auth">
