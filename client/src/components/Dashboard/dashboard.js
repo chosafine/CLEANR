@@ -36,9 +36,11 @@ class Dashboard extends React.Component {
         <Link to="/" className="btn btn-dark mb-2">
           Go Back
         </Link>
+        <div className="row">
         {this.state.bookings.map((booking, index) => (
-          <BookingCard key={index} {...booking} />
+          <BookingCard key={index} {...booking}/>
         ))}
+        </div>
       </div>
     );
   }

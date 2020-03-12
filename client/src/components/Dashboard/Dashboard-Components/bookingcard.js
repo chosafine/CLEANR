@@ -22,9 +22,9 @@ class BookingCard extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <div className="card" style={{ width: "18rem" }}>
+      <div className="card mr-4" style={{ width: "18rem" }}>
         <div className="card-body">
-          <h5 className="card-title">Your next scheduled cleaning:</h5>
+          <h5 className="card-title">Scheduled Cleaning:</h5>
           <h6 className="card-subtitle mb-2 text-muted">{this.props.date}</h6>
           <ul className="list-group list-group-flush">
             <li className="list-group-item">
