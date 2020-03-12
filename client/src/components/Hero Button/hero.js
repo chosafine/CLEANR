@@ -67,7 +67,7 @@ class Hero extends React.Component {
         className="btn btn-dark mb-2"
         onClick={this.displayReset}
       >
-        Go Back!
+        Go Back
       </button>
     );
 

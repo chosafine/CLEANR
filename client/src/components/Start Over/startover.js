@@ -30,8 +30,7 @@ class StartOver extends React.Component {
         className="btn btn-danger mt-2 mr-4"
         onClick={e => this.handleStartOver()}
       >
-        {" "}
-        Start Over!{" "}
+        Reset Choices
       </button>
     );
   }

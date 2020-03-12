@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function dashboardButton() {
   return (
     <Link to="/dashboard" className="btn btn-dark">
-      Load Dashboard!
+      Load Dashboard
     </Link>
   );
 }

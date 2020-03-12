@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "../Card/card";
-import Submit from "../Submit/submit";
 import StartOver from "../Start Over/startover";
 import Estimate from "../Estimate/estimate";
 
@@ -48,7 +47,7 @@ class Question extends React.Component {
 
     const getEstimate = (
       <button className="btn btn-success mt-2" onClick={this.nextQuote}>
-        Get Quote!
+        Get Quote
       </button>
     );
 
@@ -61,7 +60,7 @@ class Question extends React.Component {
         ) : null}
         {this.state.showBookingInfo ? (
           <div>
-            <Estimate type={this.props.type} /> <Submit />{" "}
+            <Estimate type={this.props.type} />
           </div>
         ) : null}
       </div>
