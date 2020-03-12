@@ -7,7 +7,7 @@
 
 CLEANR A useful utility for managing clients, taking payment, and scheduling / doing estimates for services. The inspiration for this app was too provide a useful utility for local cleaning businesses to be able to digitalize their business.
 
-![Screenshot]()
+![Screenshot](screenshot.png)
 
 ## Navigation
 
