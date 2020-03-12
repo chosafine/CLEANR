@@ -6,6 +6,7 @@ import {
   venueCleaning
 } from "../../utils/questions";
 import Booking from "../Booking/booking";
+import Signup from "./estimate-signup";
 
 /* This component generates the estimated price for how much a user would pay
  for a cleaning service. In order to generate the price some logic has to be done.
@@ -93,7 +94,10 @@ class Estimate extends React.Component {
             Current Price: ${this.state.price}
           </span>
         </h4>
+        <hr />
         <Booking />
+        <hr />
+        <Signup />
       </div>
     );
   }

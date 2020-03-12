@@ -14,7 +14,8 @@ class Booking extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="mb-2">
+        <h4>Please Select a Date</h4>
         <Calendar
           className="mx-auto"
           onChange={this.onChange}

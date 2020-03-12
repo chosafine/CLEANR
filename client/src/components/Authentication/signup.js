@@ -54,6 +54,7 @@ function Signup(props) {
           isSubmitting
         }) => (
           <form onSubmit={handleSubmit}>
+            <h3>Sign Up</h3>
             <div className="form-group row">
               <label className="col-sm-2 col-form-label" htmlFor="firstName">
                 First Name:
