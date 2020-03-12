@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { reset } from "../../utils/actions";
-import store from "../../utils/index";
 
 // This component is a button that when clicked (handleStartOver)
 // will go ahead and run the reset action on the store to go ahead
@@ -16,18 +15,13 @@ class StartOver extends React.Component {
     const buttons = document.getElementsByClassName("choiceBtn");
 
     Array.prototype.forEach.call(buttons, button => (button.disabled = false));
-
-    // For testing purposes we are logging out the new empty store
-    // in the future this should be shown to the user on the page
-    // to indiciate the operation was a success
-    console.log(store.getState());
   };
 
   render() {
     return (
       <button
         type="button"
-        className="btn btn-danger mt-2 mr-4"
+        className="btn btn-danger mt-2 mr-4 mb-3"
         onClick={e => this.handleStartOver()}
       >
         Reset Choices

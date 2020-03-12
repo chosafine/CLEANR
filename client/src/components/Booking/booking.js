@@ -1,15 +1,24 @@
 import React from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import { connect } from "react-redux";
+import { addQuestion } from "../../utils/actions";
 
 class Booking extends React.Component {
-  state = {
-    date: new Date()
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      date: new Date()
+    };
+  }
+
+  writeToStore = () => {
+    this.props.addQuestion("address", this.state.date);
   };
 
   onChange = date => {
-    this.setState({ date });
-    console.log(date);
+    this.setState({ date }, () => this.writeToStore());
   };
 
   render() {
@@ -26,4 +35,4 @@ class Booking extends React.Component {
   }
 }
 
-export default Booking;
+export default connect(null, { addQuestion })(Booking);

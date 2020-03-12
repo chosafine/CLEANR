@@ -98,7 +98,7 @@ class Hero extends React.Component {
       questions = (
         <div className="buttons">
           <div
-            className="btn-group btn-group-lg"
+            className="btn-group btn-group-lg mb-4"
             role="group"
             aria-label="Options for business type"
           >

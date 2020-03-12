@@ -46,7 +46,7 @@ class Question extends React.Component {
     ));
 
     const getEstimate = (
-      <button className="btn btn-success mt-2" onClick={this.nextQuote}>
+      <button className="btn btn-success mt-2 mb-3" onClick={this.nextQuote}>
         Get Quote
       </button>
     );

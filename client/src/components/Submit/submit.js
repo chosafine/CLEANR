@@ -31,9 +31,9 @@ class Submit extends React.Component {
         headers: { "Content-Type": "application/json" }
       })
       .then(response => {
-        // As of right now for development purposes we are logging the response
-        // ideally we'd want to redirect them to the dashboard once implemented
-        console.log(response);
+        // For testing purposes we're using vanilla javascript to redirect the
+        // user. Ideally we'd use a more react native way of doing this.
+        return (window.location.href = "/dashboard");
       });
   };
 
@@ -42,7 +42,7 @@ class Submit extends React.Component {
       <div>
         <button
           type="button"
-          className="btn btn-success mt-2"
+          className="btn btn-success mb-4"
           onClick={this.handleSubmit}
         >
           Submit

@@ -7,6 +7,8 @@ import {
 } from "../../utils/questions";
 import Booking from "../Booking/booking";
 import Signup from "./estimate-signup";
+import cookie from "react-cookie";
+import Submit from "../Submit/submit";
 
 /* This component generates the estimated price for how much a user would pay
  for a cleaning service. In order to generate the price some logic has to be done.
@@ -74,7 +76,6 @@ class Estimate extends React.Component {
 
     let currentState;
     function handleChange() {
-      console.log(typeOfCleaning);
       let nextState = store.getState();
       if (nextState !== currentState) {
         currentState = nextState;
@@ -87,6 +88,13 @@ class Estimate extends React.Component {
   };
 
   render() {
+    const session = cookie.load("connect.sid");
+
+    let submitbutton;
+    session
+      ? (submitbutton = <Submit />)
+      : (submitbutton = <Signup price={this.state.price} />);
+
     return (
       <div>
         <h4>
@@ -97,7 +105,7 @@ class Estimate extends React.Component {
         <hr />
         <Booking />
         <hr />
-        <Signup />
+        {submitbutton}
       </div>
     );
   }

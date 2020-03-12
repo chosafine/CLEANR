@@ -9,9 +9,9 @@ module.exports = function(app) {
     // Connect to database and create cleaning by using the items provided in the req.body object
     db.Cleanings.create({
       id: req.body.id,
-      // address: req.body.address,
+      address: req.body.address,
       square_ft: req.body.squareft,
-      // rate: req.body.rate,
+      rate: req.body.price,
       // existing: req.body.existing,
       frequency: req.body.frequency
       // next: req.body.next,

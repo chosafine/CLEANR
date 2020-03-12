@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import BookingCard from "./Dashboard-Components/bookingcard";
+import { Link } from "react-router-dom";
 
 class Dashboard extends React.Component {
   state = {
@@ -31,7 +32,10 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
+        <Link to="/" className="btn btn-dark mb-2">
+          Go Back
+        </Link>
         {this.state.bookings.map((booking, index) => (
           <BookingCard key={index} {...booking} />
         ))}

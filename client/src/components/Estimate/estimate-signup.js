@@ -2,9 +2,22 @@ import React from "react";
 import axios from "axios";
 import { Formik } from "formik";
 import store from "../../utils/index";
+import { connect } from "react-redux";
+import { addQuestion } from "../../utils/actions";
 
 class Signup extends React.Component {
+  // eslint-disable-next-line
+  constructor(props) {
+    super(props);
+  }
+
+  writeToStore = () => {
+    this.props.addQuestion("price", this.props.price);
+  };
+
   sendPayload = () => {
+    this.writeToStore();
+
     const currentStore = store.getState();
     let postStore = {};
 
@@ -17,6 +30,8 @@ class Signup extends React.Component {
     // we do not have a userid or id system currently so for testing
     // we are
     postStore["id"] = Math.floor(Math.random() * 1000 + 1);
+
+    console.log(postStore);
 
     axios
       .post("/api/cleaning", postStore, {
@@ -165,4 +180,4 @@ class Signup extends React.Component {
   }
 }
 
-export default Signup;
+export default connect(null, { addQuestion })(Signup);
