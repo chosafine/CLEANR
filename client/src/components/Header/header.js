@@ -4,10 +4,12 @@ import Logout from "../Logout/Logout";
 import DashboardButton from "../Authentication/dashboard-button";
 import cookie from "react-cookie";
 
+
 /* This is a simple header that servers an anchor for the branding of the page.
  In the future this should also render a link to the dashboard if a user is
  logged in */
 class Header extends React.Component {
+  
   render() {
     // getting session every time component loads so we can show null if they're not logged in
     const session = cookie.load("connect.sid");
@@ -21,6 +23,8 @@ class Header extends React.Component {
         </div>
       );
     }
+  
+
 
     return (
       <div className="jumbotron jumbotron-fluid border border-dark">
@@ -34,5 +38,8 @@ class Header extends React.Component {
     );
   }
 }
+
+
+
 
 export default Header;
